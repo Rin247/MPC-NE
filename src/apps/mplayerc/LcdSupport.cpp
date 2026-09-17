@@ -1,3 +1,5 @@
+#ifndef __MPC_NE_NO_LCD__
+
 /*
  * (C) 2006-2023 see Authors.txt
  *
@@ -723,3 +725,5 @@ HRESULT CMPC_Lcd::SetAsForeground(BOOL setAsForeground)
 
 	return S_OK;
 }
+
+#endif

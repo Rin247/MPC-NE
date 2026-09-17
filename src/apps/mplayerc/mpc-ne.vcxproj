@@ -55,6 +55,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(SolutionDir)src;$(SolutionDir)src\ExtLib\MediaInfo;$(SolutionDir)src\ExtLib\ZenLib;$(SolutionDir)src\ExtLib\mfx_dispatch\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>__MPC_NE_NO_LCD__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Manifest>
       <EnableDpiAwareness>false</EnableDpiAwareness>

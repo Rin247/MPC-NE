@@ -21,6 +21,8 @@
 
 #pragma once
 
+#ifndef __MPC_NE_NO_LCD__
+
 #include <lglcd/lglcd.h>
 #include <ExtLib/ui/LCDUI/LCDUI.h>
 
@@ -129,3 +131,29 @@ public:
 	void SetStatusMessage(const WCHAR* text, int nTimeOut);
 	void SetPlayState(PlayState ps);
 };
+
+#else
+
+class CMPC_Lcd
+{
+public:
+	enum PlayState {
+		PS_PLAY   = 0,
+		PS_PAUSE  = 1,
+		PS_STOP   = 2,
+		PS_UNUSED = 3
+	};
+
+	CMPC_Lcd() {}
+	~CMPC_Lcd() {}
+
+	void SetMediaTitle(const WCHAR*) {}
+	void SetMediaRange(__int64, __int64) {}
+	void SetMediaPos(__int64) {}
+	void SetVolumeRange(__int64, __int64) {}
+	void SetVolume(__int64) {}
+	void SetStatusMessage(const WCHAR*, int) {}
+	void SetPlayState(PlayState) {}
+};
+
+#endif
