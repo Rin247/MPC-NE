@@ -92,7 +92,6 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{154D3FA8-9BB8-4EC1-8D56-DA14715ACD56}</ProjectGuid>
     <RootNamespace>Shaders</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(SolutionDir)src\platform.props" />
