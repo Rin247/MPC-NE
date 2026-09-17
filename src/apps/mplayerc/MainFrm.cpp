@@ -194,8 +194,10 @@ public:
 };
 
 
-static LPCWSTR s_strPlayerTitle = "MPC-BE "
-#ifdef _WIN64
+static LPCWSTR s_strPlayerTitle = "MPC-NE "
+#ifdef _M_ARM64
+	L"arm64 "
+#elif _WIN64
 	L"x64 "
 #endif
 	MPC_VERSION_WSTR
