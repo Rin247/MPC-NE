@@ -3,183 +3,183 @@
   <ItemGroup Label="ProjectConfigurations">
       <Configuration>Release Arabic</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Arabic|amd64">
+    <ProjectConfiguration Include="Release Arabic|x64">
       <Configuration>Release Arabic</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Armenian</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Armenian|amd64">
+    <ProjectConfiguration Include="Release Armenian|x64">
       <Configuration>Release Armenian</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Basque</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Basque|amd64">
+    <ProjectConfiguration Include="Release Basque|x64">
       <Configuration>Release Basque</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Belarusian</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Belarusian|amd64">
+    <ProjectConfiguration Include="Release Belarusian|x64">
       <Configuration>Release Belarusian</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Bulgarian</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Bulgarian|amd64">
+    <ProjectConfiguration Include="Release Bulgarian|x64">
       <Configuration>Release Bulgarian</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Catalan</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Catalan|amd64">
+    <ProjectConfiguration Include="Release Catalan|x64">
       <Configuration>Release Catalan</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Chinese Simplified</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Chinese Simplified|amd64">
+    <ProjectConfiguration Include="Release Chinese Simplified|x64">
       <Configuration>Release Chinese Simplified</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Chinese Traditional</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Chinese Traditional|amd64">
+    <ProjectConfiguration Include="Release Chinese Traditional|x64">
       <Configuration>Release Chinese Traditional</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Croatian</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Croatian|amd64">
+    <ProjectConfiguration Include="Release Croatian|x64">
       <Configuration>Release Croatian</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Czech</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Czech|amd64">
+    <ProjectConfiguration Include="Release Czech|x64">
       <Configuration>Release Czech</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Dutch</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Dutch|amd64">
+    <ProjectConfiguration Include="Release Dutch|x64">
       <Configuration>Release Dutch</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release French</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release French|amd64">
+    <ProjectConfiguration Include="Release French|x64">
       <Configuration>Release French</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release German</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release German|amd64">
+    <ProjectConfiguration Include="Release German|x64">
       <Configuration>Release German</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Greek</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Greek|amd64">
+    <ProjectConfiguration Include="Release Greek|x64">
       <Configuration>Release Greek</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Hebrew</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Hebrew|amd64">
+    <ProjectConfiguration Include="Release Hebrew|x64">
       <Configuration>Release Hebrew</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Hungarian</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Hungarian|amd64">
+    <ProjectConfiguration Include="Release Hungarian|x64">
       <Configuration>Release Hungarian</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Italian</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Italian|amd64">
+    <ProjectConfiguration Include="Release Italian|x64">
       <Configuration>Release Italian</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Japanese</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Japanese|amd64">
+    <ProjectConfiguration Include="Release Japanese|x64">
       <Configuration>Release Japanese</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Korean</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Korean|amd64">
+    <ProjectConfiguration Include="Release Korean|x64">
       <Configuration>Release Korean</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Polish</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Polish|amd64">
+    <ProjectConfiguration Include="Release Polish|x64">
       <Configuration>Release Polish</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Portuguese</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Portuguese|amd64">
+    <ProjectConfiguration Include="Release Portuguese|x64">
       <Configuration>Release Portuguese</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Romanian</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Romanian|amd64">
+    <ProjectConfiguration Include="Release Romanian|x64">
       <Configuration>Release Romanian</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Russian</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Russian|amd64">
+    <ProjectConfiguration Include="Release Russian|x64">
       <Configuration>Release Russian</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Slovak</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Slovak|amd64">
+    <ProjectConfiguration Include="Release Slovak|x64">
       <Configuration>Release Slovak</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Slovenian</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Slovenian|amd64">
+    <ProjectConfiguration Include="Release Slovenian|x64">
       <Configuration>Release Slovenian</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>	
       <Configuration>Release Spanish</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Spanish|amd64">
+    <ProjectConfiguration Include="Release Spanish|x64">
       <Configuration>Release Spanish</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Swedish</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Swedish|amd64">
+    <ProjectConfiguration Include="Release Swedish|x64">
       <Configuration>Release Swedish</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Turkish</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Turkish|amd64">
+    <ProjectConfiguration Include="Release Turkish|x64">
       <Configuration>Release Turkish</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Ukrainian</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Ukrainian|amd64">
+    <ProjectConfiguration Include="Release Ukrainian|x64">
       <Configuration>Release Ukrainian</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
       <Configuration>Release Vietnamese</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release Vietnamese|amd64">
+    <ProjectConfiguration Include="Release Vietnamese|x64">
       <Configuration>Release Vietnamese</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -189,92 +189,92 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(SolutionDir)src\platform.props" />
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Ukrainian|amd64'">
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Ukrainian|x64'">
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Chinese Traditional|amd64'">
-  </PropertyGroup>
-  </PropertyGroup>
-  </PropertyGroup>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Romanian|amd64'">
-  </PropertyGroup>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Russian|amd64'">
-  </PropertyGroup>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Hebrew|amd64'">
-  </PropertyGroup>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Belarusian|amd64'">
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release German|amd64'">
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Greek|amd64'">
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Turkish|amd64'">
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Chinese Traditional|x64'">
   </PropertyGroup>
   </PropertyGroup>
   </PropertyGroup>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Korean|amd64'">
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Romanian|x64'">
   </PropertyGroup>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Basque|amd64'">
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Russian|x64'">
   </PropertyGroup>
   </PropertyGroup>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release French|amd64'">
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Swedish|amd64'">
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Hebrew|x64'">
   </PropertyGroup>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Spanish|amd64'">
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Belarusian|x64'">
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release German|x64'">
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Greek|x64'">
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Arabic|amd64'">
-  </PropertyGroup>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Armenian|amd64'">
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Slovak|amd64'">
-  </PropertyGroup>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Slovenian|amd64'">
-  </PropertyGroup>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Polish|amd64'">
-  </PropertyGroup>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Catalan|amd64'">
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Turkish|x64'">
   </PropertyGroup>
   </PropertyGroup>
   </PropertyGroup>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Korean|x64'">
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Czech|amd64'">
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Croatian|amd64'">
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Dutch|amd64'">
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Portuguese|amd64'">
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Basque|x64'">
   </PropertyGroup>
   </PropertyGroup>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Japanese|amd64'">
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release French|x64'">
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Hungarian|amd64'">
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Swedish|x64'">
   </PropertyGroup>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Italian|amd64'">
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Chinese Simplified|amd64'">
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Spanish|x64'">
   </PropertyGroup>
   </PropertyGroup>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Arabic|x64'">
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Vietnamese|amd64'">
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Armenian|x64'">
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Slovak|x64'">
+  </PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Slovenian|x64'">
+  </PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Polish|x64'">
+  </PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Catalan|x64'">
+  </PropertyGroup>
+  </PropertyGroup>
+  </PropertyGroup>
+  </PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Czech|x64'">
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Croatian|x64'">
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Dutch|x64'">
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Portuguese|x64'">
+  </PropertyGroup>
+  </PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Japanese|x64'">
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Hungarian|x64'">
+  </PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Italian|x64'">
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Chinese Simplified|x64'">
+  </PropertyGroup>
+  </PropertyGroup>
+  </PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Vietnamese|x64'">
   </PropertyGroup>
   <PropertyGroup>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -289,7 +289,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Platform)'=='amd64'">$(SolutionDir)_bin\mpc-ne_amd64\Lang\</OutDir>
+    <OutDir Condition="'$(Platform)'=='x64'">$(SolutionDir)_bin\mpc-ne_x64\Lang\</OutDir>
     <IntDir>$(SolutionDir)_bin\obj\$(Configuration)_$(PlatformName)\$(ProjectName)\</IntDir>
     <TargetName Condition="'$(Configuration)'=='Release Arabic'">$(ProjectName).ar</TargetName>
     <TargetName Condition="'$(Configuration)'=='Release Armenian'">$(ProjectName).hy</TargetName>

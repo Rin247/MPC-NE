@@ -3,9 +3,9 @@
   <ItemGroup Label="ProjectConfigurations">
       <Configuration>Release</Configuration>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|amd64">
+    <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
-      <Platform>amd64</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -28,7 +28,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|amd64'">$(SolutionDir)_bin\mpc-ne_amd64\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)_bin\mpc-ne_x64\</OutDir>
   </PropertyGroup>
     <Link>
       <NoEntryPoint>false</NoEntryPoint>
@@ -38,7 +38,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)include</AdditionalIncludeDirectories>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|amd64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
       <NoEntryPoint>false</NoEntryPoint>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>

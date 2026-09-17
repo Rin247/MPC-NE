@@ -31,7 +31,7 @@
       <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Filter|amd64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Filter|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(SolutionDir)src\ExtLib\ffmpeg;$(SolutionDir)src\ExtLib\ffmpeg\compat\atomics\win32;$(SolutionDir)src;$(SolutionDir)src\ExtLib\nv-codec-headers\include;$(SolutionDir)src\ExtLib\mfx_dispatch\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4003;%(DisableSpecificWarnings)</DisableSpecificWarnings>
@@ -55,7 +55,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Filter|amd64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Filter|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(SolutionDir)src\ExtLib\ffmpeg;$(SolutionDir)src\ExtLib\ffmpeg\compat\atomics\win32;$(SolutionDir)src;$(SolutionDir)src\ExtLib\nv-codec-headers\include;$(SolutionDir)src\ExtLib\mfx_dispatch\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4003;%(DisableSpecificWarnings)</DisableSpecificWarnings>
@@ -74,7 +74,7 @@
     </ClCompile>
     <ProjectReference />
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|amd64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(SolutionDir)src\ExtLib\ffmpeg;$(SolutionDir)src\ExtLib\ffmpeg\compat\atomics\win32;$(SolutionDir)src;$(SolutionDir)src\ExtLib\nv-codec-headers\include;$(SolutionDir)src\ExtLib\mfx_dispatch\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -89,7 +89,7 @@
     </ClCompile>
     <ProjectReference />
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|amd64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(SolutionDir)src\ExtLib\ffmpeg;$(SolutionDir)src\ExtLib\ffmpeg\compat\atomics\win32;$(SolutionDir)src;$(SolutionDir)src\ExtLib\nv-codec-headers\include;$(SolutionDir)src\ExtLib\mfx_dispatch\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>

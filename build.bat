@@ -47,8 +47,8 @@ FOR %%A IN (%ARG%) DO (
   IF /I "%%A" == "Build"      SET "BUILDTYPE=Build"     & SET /A ARGB+=1
   IF /I "%%A" == "Clean"      SET "BUILDTYPE=Clean"     & SET /A ARGB+=1  & SET /A ARGCL+=1
   IF /I "%%A" == "Rebuild"    SET "BUILDTYPE=Rebuild"   & SET /A ARGB+=1
-  IF /I "%%A" == "amd64"      SET "BUILDPLATFORM=amd64" & SET /A ARGPL+=1
-  IF /I "%%A" == "x64"        SET "BUILDPLATFORM=amd64" & SET /A ARGPL+=1
+  IF /I "%%A" == "x64"      SET "BUILDPLATFORM=x64" & SET /A ARGPL+=1
+  IF /I "%%A" == "x64"        SET "BUILDPLATFORM=x64" & SET /A ARGPL+=1
   IF /I "%%A" == "ARM64"      SET "BUILDPLATFORM=ARM64" & SET /A ARGPL+=1
   IF /I "%%A" == "All"        SET "CONFIG=All"          & SET /A ARGC+=1
   IF /I "%%A" == "Main"       SET "CONFIG=Main"         & SET /A ARGC+=1  & SET /A ARGM+=1
@@ -87,7 +87,7 @@ SET /A VALID=%ARGB%+%ARGPL%+%ARGC%+%ARGBC%+%ARGPA%+%ARGIN%+%ARGZI%+%ARGSIGN%+%AR
 IF %VALID% NEQ %INPUT% GOTO UnsupportedSwitch
 
 IF %ARGB%    GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGB% == 0    (SET "BUILDTYPE=Build")
-IF %ARGPL%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGPL% == 0   (SET "BUILDPLATFORM=amd64")
+IF %ARGPL%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGPL% == 0   (SET "BUILDPLATFORM=x64")
 IF %ARGC%    GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGC% == 0    (SET "CONFIG=MPCNE")
 IF %ARGBC%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGBC% == 0   (SET "BUILDCFG=Release")
 IF %ARGPA%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGPA% == 0   (SET "PACKAGES=False")
@@ -142,48 +142,48 @@ SET "MSBUILD_SWITCHES=/nologo /consoleloggerparameters:Verbosity=minimal /maxcpu
 SET START_TIME=%TIME%
 SET START_DATE=%DATE%
 
-CALL "%VCVARS%" -arch=amd64
+CALL "%VCVARS%" -arch=x64
 REM again set the source directory (fix possible bug in VS2017)
 CD /D %~dp0
 
 IF /I "%BUILDTYPE%" == "Clean" (
   TITLE Cleaning MPC-NE...
-  MSBuild.exe mpc-ne.sln %MSBUILD_SWITCHES% /target:Clean /property:Configuration="%BUILDCFG%";Platform=amd64
+  MSBuild.exe mpc-ne.sln %MSBUILD_SWITCHES% /target:Clean /property:Configuration="%BUILDCFG%";Platform=x64
   IF %ERRORLEVEL% NEQ 0 (
-    CALL :SubMsg "ERROR" "mpc-ne.sln %BUILDCFG% amd64 - Clean failed!"
+    CALL :SubMsg "ERROR" "mpc-ne.sln %BUILDCFG% x64 - Clean failed!"
     EXIT /B %ERRORLEVEL%
   ) ELSE (
-    CALL :SubMsg "INFO" "mpc-ne.sln %BUILDCFG% amd64 cleaned successfully"
+    CALL :SubMsg "INFO" "mpc-ne.sln %BUILDCFG% x64 cleaned successfully"
   )
   GOTO End
 )
 
 IF /I "%CONFIG%" == "Filters" (
-  CALL :SubFilters amd64
+  CALL :SubFilters x64
   IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-  IF /I "%ZIP%" == "True" CALL :SubCreatePackages Filters amd64
+  IF /I "%ZIP%" == "True" CALL :SubCreatePackages Filters x64
   GOTO End
 )
 
-IF /I "%CONFIG%" == "Resources" CALL :SubResources amd64 && GOTO End
+IF /I "%CONFIG%" == "Resources" CALL :SubResources x64 && GOTO End
 
-CALL :SubMPCNE amd64
+CALL :SubMPCNE x64
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
 IF /I "%CONFIG%" == "Main" GOTO End
 
-CALL :SubResources amd64
+CALL :SubResources x64
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
-IF /I "%INSTALLER%" == "True" CALL :SubCreateInstaller amd64
+IF /I "%INSTALLER%" == "True" CALL :SubCreateInstaller x64
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-IF /I "%ZIP%" == "True"       CALL :SubCreatePackages MPC-NE amd64
+IF /I "%ZIP%" == "True"       CALL :SubCreatePackages MPC-NE x64
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
 IF /I "%CONFIG%" == "All" (
-  CALL :SubFilters amd64
+  CALL :SubFilters x64
   IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-  IF /I "%ZIP%" == "True" CALL :SubCreatePackages Filters amd64
+  IF /I "%ZIP%" == "True" CALL :SubCreatePackages Filters x64
 )
 
 :End
@@ -207,7 +207,7 @@ IF %ERRORLEVEL% NEQ 0 (
   CALL :SubMsg "INFO" "mpc-ne.sln %BUILDCFG% Filter %1 compiled successfully"
 )
 
-SET "DIR=%BIN%\Filters_amd64"
+SET "DIR=%BIN%\Filters_x64"
 
 IF /I "%SIGN%" == "True" (
   CALL :SubSign %DIR% *.ax
@@ -228,19 +228,19 @@ IF %ERRORLEVEL% NEQ 0 (
   CALL :SubMsg "INFO" "mpc-ne.sln %BUILDCFG% %1 compiled successfully"
 )
 
-TITLE Compiling mpciconlib - %BUILDCFG%^|amd64...
+TITLE Compiling mpciconlib - %BUILDCFG%^|x64...
 MSBuild.exe mpciconlib.sln %MSBUILD_SWITCHES%^
- /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=amd64^
- /flp1:LogFile=%LOG_DIR%\mpciconlib_errors_%BUILDCFG%_amd64.log;errorsonly;Verbosity=diagnostic^
- /flp2:LogFile=%LOG_DIR%\mpciconlib_warnings_%BUILDCFG%_amd64.log;warningsonly;Verbosity=diagnostic
+ /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=x64^
+ /flp1:LogFile=%LOG_DIR%\mpciconlib_errors_%BUILDCFG%_x64.log;errorsonly;Verbosity=diagnostic^
+ /flp2:LogFile=%LOG_DIR%\mpciconlib_warnings_%BUILDCFG%_x64.log;warningsonly;Verbosity=diagnostic
 IF %ERRORLEVEL% NEQ 0 (
-  CALL :SubMsg "ERROR" "mpciconlib.sln %BUILDCFG% amd64 - Compilation failed!"
+  CALL :SubMsg "ERROR" "mpciconlib.sln %BUILDCFG% x64 - Compilation failed!"
   EXIT /B %ERRORLEVEL%
 ) ELSE (
-  CALL :SubMsg "INFO" "mpciconlib.sln %BUILDCFG% amd64 compiled successfully"
+  CALL :SubMsg "INFO" "mpciconlib.sln %BUILDCFG% x64 compiled successfully"
 )
 
-SET "DIR=%BIN%\mpc-ne_amd64"
+SET "DIR=%BIN%\mpc-ne_x64"
 
 IF /I "%SIGN%" == "True" (
   CALL :SubSign %DIR% mpc-ne*.exe
@@ -249,15 +249,15 @@ IF /I "%SIGN%" == "True" (
 
 TITLE Compiling MPCNEShellExt - %BUILDCFG%...
 MSBuild.exe MPCNEShellExt.sln %MSBUILD_SWITCHES%^
- /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=amd64
+ /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=x64
 IF %ERRORLEVEL% NEQ 0 (
-  CALL :SubMsg "ERROR" "MPCNEShellExt.sln %BUILDCFG% amd64 - Compilation failed!"
+  CALL :SubMsg "ERROR" "MPCNEShellExt.sln %BUILDCFG% x64 - Compilation failed!"
   EXIT /B %ERRORLEVEL%
 ) ELSE (
-  CALL :SubMsg "INFO" "MPCNEShellExt.sln %BUILDCFG% amd64 compiled successfully"
+  CALL :SubMsg "INFO" "MPCNEShellExt.sln %BUILDCFG% x64 compiled successfully"
 )
 
-SET "DIR=%BIN%\mpc-ne_amd64"
+SET "DIR=%BIN%\mpc-ne_x64"
 IF /I "%SIGN%" == "True" (
   CALL :SubSign %DIR% MPCNEShellExt64.dll
 )
@@ -275,16 +275,16 @@ FOR %%A IN ("Arabic" "Armenian" "Basque" "Belarusian" "Bulgarian" "Catalan" "Chi
  "Italian" "Japanese" "Korean" "Polish" "Portuguese" "Romanian" "Russian" "Slovak" "Slovenian" "Spanish"
  "Swedish" "Turkish" "Ukrainian" "Vietnamese"
 ) DO (
- TITLE Compiling mpcresources - %%~A^|amd64...
+ TITLE Compiling mpcresources - %%~A^|x64...
  MSBuild.exe mpcresources.sln %MSBUILD_SWITCHES%^
- /target:%BUILDTYPE% /property:Configuration="Release %%~A";Platform=amd64
+ /target:%BUILDTYPE% /property:Configuration="Release %%~A";Platform=x64
  IF %ERRORLEVEL% NEQ 0 (
    CALL :SubMsg "ERROR" "Compilation failed!"
    EXIT /B %ERRORLEVEL%
  )
 )
 
-SET "DIR=%BIN%\mpc-ne_amd64\Lang"
+SET "DIR=%BIN%\mpc-ne_x64\Lang"
 
 IF /I "%SIGN%" == "True" (
   CALL :SubSign %DIR% mpcresources.??.dll
@@ -339,12 +339,12 @@ CALL :SubGetVersion
 
 IF /I "%~1" == "Win32" (
   SET ARCH=x86
-) ELSE IF /I "%~1" == "amd64" (
-  SET ARCH=amd64
+) ELSE IF /I "%~1" == "x64" (
+  SET ARCH=x64
 ) ELSE IF /I "%~1" == "ARM64" (
   SET ARCH=arm64
 ) ELSE (
-  SET ARCH=amd64
+  SET ARCH=x64
 )
 
 REM Rename installer to include version and architecture
@@ -369,12 +369,12 @@ IF NOT DEFINED SEVENZIP (
 IF /I "%~1" == "Filters" (SET "NAME=standalone_filters-mpc-ne") ELSE (SET "NAME=MPC-NE")
 IF /I "%~2" == "Win32" (
   SET ARCH=x86
-) ELSE IF /I "%~2" == "amd64" (
-  SET ARCH=amd64
+) ELSE IF /I "%~2" == "x64" (
+  SET ARCH=x64
 ) ELSE IF /I "%~2" == "ARM64" (
   SET ARCH=arm64
 ) ELSE (
-  SET ARCH=amd64
+  SET ARCH=x64
 )
 
 PUSHD "%BIN%"
@@ -403,11 +403,11 @@ IF /I "%NAME%" == "MPC-NE" (
   IF NOT EXIST "%PCKG_NAME%\Lang" MD "%PCKG_NAME%\Lang"
   IF NOT EXIST "%PCKG_NAME%\Shaders" MD "%PCKG_NAME%\Shaders"
   IF NOT EXIST "%PCKG_NAME%\Shaders11" MD "%PCKG_NAME%\Shaders11"
-  IF /I "%ARCH%" == "amd64" (
+  IF /I "%ARCH%" == "x64" (
     COPY /Y /V "%~1_%ARCH%\mpc-ne64.exe"                   "%PCKG_NAME%\mpc-ne64.exe" >NUL
     COPY /Y /V "%~1_%ARCH%\MPCNEShellExt64.dll"            "%PCKG_NAME%\MPCNEShellExt64.dll" >NUL
-COPY /Y /V "..\distrib\MPC_components\DirectX\amd64\d3dcompiler_47.dll" "%PCKG_NAME%\d3dcompiler_47.dll" >NUL
-COPY /Y /V "..\distrib\MPC_components\DirectX\amd64\d3dx9_43.dll"       "%PCKG_NAME%\d3dx9_43.dll" >NUL
+COPY /Y /V "..\distrib\MPC_components\DirectX\x64\d3dcompiler_47.dll" "%PCKG_NAME%\d3dcompiler_47.dll" >NUL
+COPY /Y /V "..\distrib\MPC_components\DirectX\x64\d3dx9_43.dll"       "%PCKG_NAME%\d3dx9_43.dll" >NUL
     COPY /Y /V "..\distrib\VisualElements\mpc-ne64.VisualElementsManifest.xml" "%PCKG_NAME%" >NUL
   ) ELSE IF /I "%ARCH%" == "arm64" (
     COPY /Y /V "%~1_%ARCH%\mpc-ne_arm64.exe"               "%PCKG_NAME%\mpc-ne_arm64.exe" >NUL
@@ -458,7 +458,7 @@ IF /I "%NAME%" == "MPC-NE" IF /I "%ZIP%" == "True" (
 
 IF /I "%NAME%" == "MPC-NE" IF /I "%PDB%" == "True" (
   TITLE Creating PDB archive %PCKG_NAME%-pdb.7z...
-  IF /I "%ARCH%" == "amd64" (
+  IF /I "%ARCH%" == "x64" (
     START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCNE_VER%\%PCKG_NAME%-pdb.7z" "%~1_%ARCH%\mpc-ne64.pdb"^
    -m0=lzma -mx9 -mmt -ms=on
   ) ELSE IF /I "%ARCH%" == "arm64" (
@@ -517,13 +517,13 @@ IF /I "%VERRELEASE%" == "1" (
 EXIT /B
 
 :SubDetectWinArch
-IF DEFINED PROGRAMFILES(x86) (SET x64_type=amd64) ELSE (SET x64_type=x86_amd64)
+IF DEFINED PROGRAMFILES(x86) (SET x64_type=x64) ELSE (SET x64_type=x86_x64)
 EXIT /B
 
 :SubDetectInnoSetup
 REM Detect if we are running on 64bit WIN and use Wow6432Node, and set the path
 REM of Inno Setup accordingly
-IF /I "%x64_type%" == "amd64" (
+IF /I "%x64_type%" == "x64" (
   SET "U_=HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall"
 ) ELSE (
   SET "U_=HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"
@@ -545,7 +545,7 @@ IF EXIST "%SEVENZIP_PATH%" (SET "SEVENZIP=%SEVENZIP_PATH%" & EXIT /B)
 FOR %%A IN (7za.exe) DO (SET "SEVENZIP_PATH=%%~$PATH:A")
 IF EXIST "%SEVENZIP_PATH%" (SET "SEVENZIP=%SEVENZIP_PATH%" & EXIT /B)
 
-IF /I "%x64_type%" == "amd64" (
+IF /I "%x64_type%" == "x64" (
   FOR /F "delims=" %%A IN (
     'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\7-Zip" /v "Path" 2^>Nul ^| FIND "REG_SZ"') DO (
     SET "SEVENZIP_REG=%%A" & CALL :SubSevenzipPath %%SEVENZIP_REG:*REG_SZ=%%
@@ -562,7 +562,7 @@ EXIT /B
 TITLE %~nx0 Help
 ECHO.
 ECHO Usage:
-ECHO %~nx0 [Clean^|Build^|Rebuild] [amd64^|ARM64] [Main^|Resources^|MPCNE^|Filters^|All] [Debug^|Release] [Packages^|Installer^|Zip] [Sign]
+ECHO %~nx0 [Clean^|Build^|Rebuild] [x64^|ARM64] [Main^|Resources^|MPCNE^|Filters^|All] [Debug^|Release] [Packages^|Installer^|Zip] [Sign]
 ECHO.
 ECHO Notes: You can also prefix the commands with "-", "--" or "/".
 ECHO        Debug only applies to mpc-ne.sln.
@@ -572,13 +572,13 @@ ECHO Executing %~nx0 without any arguments will use the default ones:
 ECHO "%~nx0 Build Release"
 ECHO. & ECHO.
 ECHO Examples:
-ECHO %~nx0 Resources     -Builds amd64 resources
-ECHO %~nx0               -Builds amd64 Main exe and the amd64 resources
-ECHO %~nx0 Debug         -Builds amd64 Main Debug exe and amd64 resources
-ECHO %~nx0 Filters       -Builds amd64 Filters
-ECHO %~nx0 All           -Builds amd64 Main exe, amd64 Filters and the amd64 resources
-ECHO %~nx0 Packages      -Builds amd64 Main exe, amd64 resources and creates the installer and the .7z package
-ECHO %~nx0 Sign          -Builds amd64 Main exe and the amd64 resources and signing output files
+ECHO %~nx0 Resources     -Builds x64 resources
+ECHO %~nx0               -Builds x64 Main exe and the x64 resources
+ECHO %~nx0 Debug         -Builds x64 Main Debug exe and x64 resources
+ECHO %~nx0 Filters       -Builds x64 Filters
+ECHO %~nx0 All           -Builds x64 Main exe, x64 Filters and the x64 resources
+ECHO %~nx0 Packages      -Builds x64 Main exe, x64 resources and creates the installer and the .7z package
+ECHO %~nx0 Sign          -Builds x64 Main exe and the x64 resources and signing output files
 ECHO.
 ENDLOCAL
 EXIT /B
