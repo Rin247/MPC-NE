@@ -1,14 +1,14 @@
 ﻿;
 ; (C) 2009-2025 see Authors.txt
 ;
-; This file is part of MPC-BE.
+; This file is part of MPC-NE.
 ;
-; MPC-BE is free software; you can redistribute it and/or modify
+; MPC-NE is free software; you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
 ; the Free Software Foundation; either version 3 of the License, or
 ; (at your option) any later version.
 ;
-; MPC-BE is distributed in the hope that it will be useful,
+; MPC-NE is distributed in the hope that it will be useful,
 ; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ; GNU General Public License for more details.
@@ -37,7 +37,7 @@
 #define ISPP_INVOKED
 #include "..\include\Version.h"
 
-#define app_name         "MPC-BE"
+#define app_name         "MPC-NE"
 #define copyright_year   str(MPC_YEAR_COMMENTS)
 #define app_url          str(MPC_VERSION_COMMENTS)
 #if MPC_VERSION_STATUS == 1 && MPC_VERSION_REV == 0
@@ -48,25 +48,25 @@
 
 #define bin_dir        = "..\_bin"
 
-#define bindir_x64 = bin_dir + "\mpc-be_x64"
-#define bindir_x86 = bin_dir + "\mpc-be_x86"
+#define bindir_x64 = bin_dir + "\mpc-ne_x64"
+#define bindir_x86 = bin_dir + "\mpc-ne_x86"
 
 #ifdef Win32Build
-  #define bindir       = bin_dir + "\mpc-be_x86"
-  #define mpcbe_exe    = "mpc-be.exe"
-  #define mpcbe_ini    = "mpc-be.ini"
+  #define bindir       = bin_dir + "\mpc-ne_x86"
+  #define mpcbe_exe    = "mpc-ne.exe"
+  #define mpcbe_ini    = "mpc-ne.ini"
   #define dxdir        = "MPC_components\DirectX\x86"
   #define BeveledLabel = app_name + " " + app_version
   #define Description  = app_name + " " + app_version
-  #define VisualElementsManifest = "VisualElements\mpc-be.VisualElementsManifest.xml"
+  #define VisualElementsManifest = "VisualElements\mpc-ne.VisualElementsManifest.xml"
 #else
-  #define bindir       = bin_dir + "\mpc-be_x64"
-  #define mpcbe_exe    = "mpc-be64.exe"
-  #define mpcbe_ini    = "mpc-be64.ini"
+  #define bindir       = bin_dir + "\mpc-ne_x64"
+  #define mpcbe_exe    = "mpc-ne64.exe"
+  #define mpcbe_ini    = "mpc-ne64.ini"
   #define dxdir        = "MPC_components\DirectX\x64"
   #define BeveledLabel = app_name + " x64 " + app_version
   #define Description  = app_name + " x64 " + app_version
-  #define VisualElementsManifest = "VisualElements\mpc-be64.VisualElementsManifest.xml"
+  #define VisualElementsManifest = "VisualElements\mpc-ne64.VisualElementsManifest.xml"
 #endif
 #define mpcvr_desc     = "MPC Video Renderer 0.10.7"
 #define mpcscriptsrc_desc = "MPC Script Source 0.2.17"
@@ -466,7 +466,7 @@ Type: files; Name: "{app}\mpcresources.??.dll"
 ;Root: "HKCU"; Subkey: "Software\{#app_name}\ShellExt"; ValueType: string; ValueName: "MpcPath"; ValueData: "{app}\{#mpcbe_exe}"; Flags: uninsdeletekey; Components: mpcbeshellext
 
 [Registry]
-Root: HKLM; Subkey: "SOFTWARE\Clients\Media\MPC-BE"; Flags: dontcreatekey uninsdeletekey
+Root: HKLM; Subkey: "SOFTWARE\Clients\Media\MPC-NE"; Flags: dontcreatekey uninsdeletekey
 Root: HKLM; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\{#mpcbe_exe}"; ValueType: string; ValueName: ""; ValueData: "{app}\{#mpcbe_exe}"; Flags: deletekey uninsdeletekey
 
 [Code]

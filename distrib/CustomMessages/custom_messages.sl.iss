@@ -1,14 +1,14 @@
 ﻿;
 ; (C) 2024 see Authors.txt
 ;
-; This file is part of MPC-BE.
+; This file is part of MPC-NE.
 ;
-; MPC-BE is free software; you can redistribute it and/or modify
+; MPC-NE is free software; you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
 ; the Free Software Foundation; either version 3 of the License, or
 ; (at your option) any later version.
 ;
-; MPC-BE is distributed in the hope that it will be useful,
+; MPC-NE is distributed in the hope that it will be useful,
 ; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ; GNU General Public License for more details.
@@ -39,10 +39,10 @@ sl.comp_mpciconlib=Icon Library
 sl.comp_mpcresources=Translations
 sl.comp_mpcbeshellext=Install the shell extension
 sl.comp_intel_msdk=H.264 MVC 3D Decoder
-sl.msg_DeleteSettings=Do you also want to delete MPC-BE settings?%n%nIf you plan on installing MPC-BE again then you do not have to delete them.
+sl.msg_DeleteSettings=Do you also want to delete MPC-NE settings?%n%nIf you plan on installing MPC-NE again then you do not have to delete them.
 sl.msg_NoD3DX9DLL_found=The latest DirectX runtime is not installed!%n%nPlease download and install the latest DirectX runtime June 2010 regardless of your operating system.
-sl.msg_SetupIsRunningWarning=MPC-BE setup is already running!
-sl.msg_simd_sse2=This build of MPC-BE requires a CPU with SSE2 extension support.%n%nYour CPU does not have those capabilities.
+sl.msg_SetupIsRunningWarning=MPC-NE setup is already running!
+sl.msg_simd_sse2=This build of MPC-NE requires a CPU with SSE2 extension support.%n%nYour CPU does not have those capabilities.
 sl.tsk_AllUsers=For all users
 sl.tsk_CurrentUser=For the current user only
 sl.tsk_Other=Other tasks:

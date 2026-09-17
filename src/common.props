@@ -5,6 +5,8 @@
     <OutDir>$(SolutionDir)_bin\lib\$(Configuration)_$(PlatformName)\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug Filter|x64'">$(SolutionDir)_bin\Filters_x64_Debug\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release Filter|x64'">$(SolutionDir)_bin\Filters_x64\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug Filter|ARM64'">$(SolutionDir)_bin\Filters_arm64_Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release Filter|ARM64'">$(SolutionDir)_bin\Filters_arm64\</OutDir>
     <LinkIncremental Condition="$(Configuration.Contains('Debug'))">true</LinkIncremental>
     <LinkIncremental Condition="$(Configuration.Contains('Release'))">false</LinkIncremental>
   </PropertyGroup>
@@ -15,28 +17,33 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <DisableSpecificWarnings>4244;4302;4838;26451;26812</DisableSpecificWarnings>
       <DisableSpecificWarnings Condition="'$(Platform)'=='x64'">4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Platform)'=='ARM64'">4267;4324;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>_WINDOWS;WINDOWS;WINVER=0x0B00;_WIN32_WINNT=0x0B00;_WIN32_IE=0x0800;PSAPI_VERSION=2;_USE_MATH_DEFINES;__STDC_CONSTANT_MACROS;_HAS_STD_BYTE=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(NOMINMAX)'!='False'">NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions>_WIN64;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Platform)'=='x64'">_WIN64;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Platform)'=='ARM64'">_WIN64;WIN64;_ARM64_;_M_ARM64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Lib>
-      <TargetMachine>MachineX64</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='x64'">MachineX64</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='ARM64'">MachineARM64</TargetMachine>
     </Lib>
     <Link>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <SubSystem>Windows</SubSystem>
-      <TargetMachine>MachineX64</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='x64'">MachineX64</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='ARM64'">MachineARM64</TargetMachine>
     </Link>
     <ResourceCompile>
       <Culture>0x0409</Culture>
-      <PreprocessorDefinitions>_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Platform)'=='x64'">_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Platform)'=='ARM64'">_WIN64;_ARM64_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="$(Configuration.Contains('Debug'))">

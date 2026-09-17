@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Switcher", "Switcher", "{68
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transform", "Transform", "{F9F42BF2-3F13-4654-82C5-E27B8879EC4E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mpc-be", "src\apps\mplayerc\mpc-be.vcxproj", "{8CE7E5D0-C821-47AC-A247-28EC95B34670}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mpc-ne", "src\apps\mplayerc\mpc-ne.vcxproj", "{8CE7E5D0-C821-47AC-A247-28EC95B34670}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DSUtil", "src\DSUtil\DSUtil.vcxproj", "{FC70988B-1AE5-4381-866D-4F405E28AC42}"
 EndProject
@@ -208,14 +208,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vvdec", "src\ExtLib\vvdec.v
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug Filter|Win32 = Debug Filter|Win32
 		Debug Filter|x64 = Debug Filter|x64
-		Debug|Win32 = Debug|Win32
+		Debug Filter|ARM64 = Debug Filter|ARM64
 		Debug|x64 = Debug|x64
-		Release Filter|Win32 = Release Filter|Win32
+		Debug|ARM64 = Debug|ARM64
 		Release Filter|x64 = Release Filter|x64
-		Release|Win32 = Release|Win32
+		Release Filter|ARM64 = Release Filter|ARM64
 		Release|x64 = Release|x64
+		Release|ARM64 = Release|ARM64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8CE7E5D0-C821-47AC-A247-28EC95B34670}.Debug Filter|Win32.ActiveCfg = Debug|Win32
@@ -996,12 +996,20 @@ Global
 		{58E36BF5-4A06-47E4-BD40-4CCEF8C634DF}.Release|x64.Build.0 = Release|x64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug Filter|x64.ActiveCfg = Debug Filter|x64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug Filter|x64.Build.0 = Debug Filter|x64
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug Filter|ARM64.ActiveCfg = Debug Filter|ARM64
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug Filter|ARM64.Build.0 = Debug Filter|ARM64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|x64.ActiveCfg = Debug|x64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|x64.Build.0 = Debug|x64
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|ARM64.Build.0 = Debug|ARM64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release Filter|x64.ActiveCfg = Release Filter|x64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release Filter|x64.Build.0 = Release Filter|x64
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release Filter|ARM64.ActiveCfg = Release Filter|ARM64
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release Filter|ARM64.Build.0 = Release Filter|ARM64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|x64.ActiveCfg = Release|x64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|x64.Build.0 = Release|x64
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|ARM64.ActiveCfg = Release|ARM64
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|ARM64.Build.0 = Release|ARM64
 		{305BAB2D-0D75-4FBC-8BCD-A2917392B48C}.Debug Filter|Win32.ActiveCfg = Debug Filter|Win32
 		{305BAB2D-0D75-4FBC-8BCD-A2917392B48C}.Debug Filter|Win32.Build.0 = Debug Filter|Win32
 		{305BAB2D-0D75-4FBC-8BCD-A2917392B48C}.Debug Filter|x64.ActiveCfg = Debug Filter|x64

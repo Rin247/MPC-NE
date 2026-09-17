@@ -41,8 +41,8 @@ FOR /F "delims=" %%A IN ('%gitexe% log -1 --date^=format:%%Y-%%m-%%d --pretty^=f
 
 :ÑHANGE_ÑHECK
 
-SET SrcManifest="src\apps\mplayerc\res\mpc-be.exe.manifest.conf"
-SET DstManifest="src\apps\mplayerc\res\mpc-be.exe.manifest"
+SET SrcManifest="src\apps\mplayerc\res\mpc-ne.exe.manifest.conf"
+SET DstManifest="src\apps\mplayerc\res\mpc-ne.exe.manifest"
 
 IF NOT EXIST "revision.h" GOTO :UPDATE_REV
 IF NOT EXIST %DstManifest% GOTO :UPDATE_REV
