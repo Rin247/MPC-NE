@@ -110,9 +110,9 @@ IF /I "%COMPILER%" == "VS2019" (
 ) ELSE IF /I "%COMPILER%" == "VS2022" (
   SET "PARAMS=%PARAMS% -version [17.0,18.0)"
 ) ELSE IF /I "%COMPILER%" == "VS2026" (
-  SET "PARAMS=%PARAMS% -version [18.0,19.0)"
+  SET "PARAMS=%PARAMS% -version [17.0,18.0)"
 ) ELSE (
-  SET "PARAMS=%PARAMS% -version [18.0,19.0)"
+  SET "PARAMS=%PARAMS% -version [17.0,18.0)"
 )
 
 SET "VSWHERE="%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" %PARAMS%"

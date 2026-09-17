@@ -40,13 +40,6 @@ jobs:
           fetch-depth: 0
           submodules: recursive
 
-      - name: Install Visual Studio 2026
-        run: |
-          $url = "https://aka.ms/vs/18/release/vs_enterprise.exe"
-          Invoke-WebRequest -Uri $url -OutFile "vs_enterprise.exe"
-          .\vs_enterprise.exe --quiet --wait --norestart --nocache --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.22000
-        shell: pwsh
-
       - name: Prepare MSYS
         run: |
           curl -sSL https://github.com/Aleksoid1978/MSYS/raw/main/MSYS_MinGW-w64_GCC_1521_x86-x64.7z -o MSYS.7z
@@ -59,12 +52,12 @@ jobs:
 
       - name: Clean
         run: |
-          .\\build.bat Clean All NoWait VS2026
+          .\\build.bat Clean All NoWait VS2022
         shell: pwsh
 
       - name: Build MPC-NE
         run: |
-          .\\build.bat Build Packages NoWait VS2026
+          .\\build.bat Build Packages NoWait VS2022
         shell: pwsh
 
       - name: Upload Installer x64
