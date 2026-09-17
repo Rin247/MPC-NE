@@ -529,24 +529,9 @@
     <None Include="..\mplayerc\res\Icon_116.ico" />
     <None Include="..\mplayerc\res\Icon_41.ico" />
     <None Include="..\mplayerc\res\logo.0.png" />
-    <None Include="..\mplayerc\res\logo.1.png">
-      <ExcludedFromBuild Condition="'$(Platform)'=='amd64'">true</ExcludedFromBuild>
-    </None>
-    <None Include="..\mplayerc\res\logo.1_x64.png">
-      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
-    </None>
-    <None Include="..\mplayerc\res\logo.2.png">
-      <ExcludedFromBuild Condition="'$(Platform)'=='amd64'">true</ExcludedFromBuild>
-    </None>
-    <None Include="..\mplayerc\res\logo.2_x64.png">
-      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
-    </None>
-    <None Include="..\mplayerc\res\logo.3.png">
-      <ExcludedFromBuild Condition="'$(Platform)'=='amd64'">true</ExcludedFromBuild>
-    </None>
-    <None Include="..\mplayerc\res\logo.3_x64.png">
-      <ExcludedFromBuild Condition="'$(Platform)'=='Win32'">true</ExcludedFromBuild>
-    </None>
+    <None Include="..\mplayerc\res\logo.1.png" />
+    <None Include="..\mplayerc\res\logo.2.png" />
+    <None Include="..\mplayerc\res\logo.3.png" />
     <None Include="..\mplayerc\res\mono.bmp" />
     <None Include="..\mplayerc\res\multi.ico" />
     <None Include="..\mplayerc\res\noaudio.bmp" />
