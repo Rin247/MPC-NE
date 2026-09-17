@@ -83,7 +83,6 @@ MPC-NE makes use of the following 3rd party code:
 | libpng            | zlib/libpng License | https://github.com/glennrp/libpng/                    |
 | libspeex          | BSD License         | https://speex.org/                                    |
 | Little CMS        | MIT License         | https://littlecms.com/                                |
-| Logitech SDK      |                     |                                                       |
 | MediaInfo         | BSD License         | https://mediaarea.net/MediaInfo                       |
 | mfx_dispatch      | MIT License         | https://github.com/Intel-Media-SDK/MediaSDK           |
 | RapidJSON         | MIT License         | https://github.com/Tencent/rapidjson                  |
@@ -91,7 +90,6 @@ MPC-NE makes use of the following 3rd party code:
 | soxr              | LGPL                | https://sourceforge.net/projects/soxr/                |
 | TreePropSheet     |                     |                                                       |
 | uavs3d            | BSD License         | https://github.com/uavs3/uavs3d                       |
-| VirtualDub        | GPLv2               | https://virtualdub.org/                               |
 | ZenLib            | zlib License        | https://github.com/MediaArea/ZenLib                   |
 | zlib              | zlib License        | https://zlib.net/                                     |
 | bs2b              | MIT License         | https://bs2b.sourceforge.net/                         |
