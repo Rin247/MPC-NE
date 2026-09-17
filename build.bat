@@ -249,12 +249,12 @@ IF /I "%SIGN%" == "True" (
 
 TITLE Compiling MPCNEShellExt - %BUILDCFG%...
 MSBuild.exe MPCNEShellExt.sln %MSBUILD_SWITCHES%^
- /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=x64
+ /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=amd64
 IF %ERRORLEVEL% NEQ 0 (
-  CALL :SubMsg "ERROR" "MPCNEShellExt.sln %BUILDCFG% x64 - Compilation failed!"
+  CALL :SubMsg "ERROR" "MPCNEShellExt.sln %BUILDCFG% amd64 - Compilation failed!"
   EXIT /B %ERRORLEVEL%
 ) ELSE (
-  CALL :SubMsg "INFO" "MPCNEShellExt.sln %BUILDCFG% x64 compiled successfully"
+  CALL :SubMsg "INFO" "MPCNEShellExt.sln %BUILDCFG% amd64 compiled successfully"
 )
 
 SET "DIR=%BIN%\mpc-ne_amd64"
@@ -339,12 +339,12 @@ CALL :SubGetVersion
 
 IF /I "%~1" == "Win32" (
   SET ARCH=x86
-) ELSE IF /I "%~1" == "x64" (
+) ELSE IF /I "%~1" == "amd64" (
   SET ARCH=amd64
 ) ELSE IF /I "%~1" == "ARM64" (
   SET ARCH=arm64
 ) ELSE (
-  SET ARCH=x64
+  SET ARCH=amd64
 )
 
 REM Rename installer to include version and architecture
@@ -369,12 +369,12 @@ IF NOT DEFINED SEVENZIP (
 IF /I "%~1" == "Filters" (SET "NAME=standalone_filters-mpc-ne") ELSE (SET "NAME=MPC-NE")
 IF /I "%~2" == "Win32" (
   SET ARCH=x86
-) ELSE IF /I "%~2" == "x64" (
+) ELSE IF /I "%~2" == "amd64" (
   SET ARCH=amd64
 ) ELSE IF /I "%~2" == "ARM64" (
   SET ARCH=arm64
 ) ELSE (
-  SET ARCH=x64
+  SET ARCH=amd64
 )
 
 PUSHD "%BIN%"
@@ -406,8 +406,8 @@ IF /I "%NAME%" == "MPC-NE" (
   IF /I "%ARCH%" == "amd64" (
     COPY /Y /V "%~1_%ARCH%\mpc-ne64.exe"                   "%PCKG_NAME%\mpc-ne64.exe" >NUL
     COPY /Y /V "%~1_%ARCH%\MPCNEShellExt64.dll"            "%PCKG_NAME%\MPCNEShellExt64.dll" >NUL
-    COPY /Y /V "..\distrib\MPC_components\DirectX\x64\d3dcompiler_47.dll" "%PCKG_NAME%\d3dcompiler_47.dll" >NUL
-    COPY /Y /V "..\distrib\MPC_components\DirectX\x64\d3dx9_43.dll"       "%PCKG_NAME%\d3dx9_43.dll" >NUL
+COPY /Y /V "..\distrib\MPC_components\DirectX\amd64\d3dcompiler_47.dll" "%PCKG_NAME%\d3dcompiler_47.dll" >NUL
+COPY /Y /V "..\distrib\MPC_components\DirectX\amd64\d3dx9_43.dll"       "%PCKG_NAME%\d3dx9_43.dll" >NUL
     COPY /Y /V "..\distrib\VisualElements\mpc-ne64.VisualElementsManifest.xml" "%PCKG_NAME%" >NUL
   ) ELSE IF /I "%ARCH%" == "arm64" (
     COPY /Y /V "%~1_%ARCH%\mpc-ne_arm64.exe"               "%PCKG_NAME%\mpc-ne_arm64.exe" >NUL
@@ -562,7 +562,7 @@ EXIT /B
 TITLE %~nx0 Help
 ECHO.
 ECHO Usage:
-ECHO %~nx0 [Clean^|Build^|Rebuild] [x86^|x64^|Both] [Main^|Resources^|MPCNE^|Filters^|All] [Debug^|Release] [Packages^|Installer^|Zip] [Sign]
+ECHO %~nx0 [Clean^|Build^|Rebuild] [amd64^|ARM64] [Main^|Resources^|MPCNE^|Filters^|All] [Debug^|Release] [Packages^|Installer^|Zip] [Sign]
 ECHO.
 ECHO Notes: You can also prefix the commands with "-", "--" or "/".
 ECHO        Debug only applies to mpc-ne.sln.
