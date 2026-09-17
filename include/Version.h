@@ -3,14 +3,14 @@
  * (C) 2003-2006 Gabest
  * (C) 2006-2026 see Authors.txt
  *
- * This file is part of MPC-BE.
+ * This file is part of MPC-NE.
  *
- * MPC-BE is free software; you can redistribute it and/or modify
+ * MPC-NE is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * MPC-BE is distributed in the hope that it will be useful,
+ * MPC-NE is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -44,18 +44,18 @@
 #define MAKE_STR(x)             DO_MAKE_STR(x)
 
 #define MPC_VERSION_MAJOR       1
-#define MPC_VERSION_MINOR       9
-#define MPC_VERSION_PATCH       1
+#define MPC_VERSION_MINOR       0
+#define MPC_VERSION_PATCH       0
 
-#define MPC_VERSION_STATUS      0
+#define MPC_VERSION_STATUS      1
 // MPC_VERSION_STATUS: 0 - dev; 1 - stable
 
 #define MPC_YEAR_COMMENTS       "2002-2026"
-#define MPC_VERSION_COMMENTS    "https://sourceforge.net/projects/mpcbe/"
+#define MPC_VERSION_COMMENTS    "https://github.com/Rin247/MPC-NE/"
 
 #ifndef ISPP_INVOKED
 
-#define MPC_COMP_NAME_STR       L"MPC-BE Team"
+#define MPC_COMP_NAME_STR       L"MPC-NE Team"
 #define MPC_COPYRIGHT_STR       L"Copyright © 2002-2026 all contributors, see Authors.txt"
 
 #define MPC_VERSION_FULL_NUM    MPC_VERSION_MAJOR,MPC_VERSION_MINOR,MPC_VERSION_PATCH,MPC_VERSION_REV

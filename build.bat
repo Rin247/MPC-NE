@@ -392,8 +392,20 @@ CALL :SubGetVersion
 
 IF /I "%~1" == "Win32" (
   SET ARCH=x86
+) ELSE IF /I "%~1" == "x64" (
+  SET ARCH=amd64
+) ELSE IF /I "%~1" == "ARM64" (
+  SET ARCH=arm64
 ) ELSE (
   SET ARCH=x64
+)
+
+REM Rename installer to include version and architecture
+IF EXIST "%BIN%\mpc-ne_setup.exe" (
+  MOVE /Y "%BIN%\mpc-ne_setup.exe" "%BIN%\MPC-NE_v%MPCNE_VER%-%ARCH%-installer.exe" >NUL
+)
+IF EXIST "%BIN%\mpc-ne64_setup.exe" (
+  MOVE /Y "%BIN%\mpc-ne64_setup.exe" "%BIN%\MPC-NE_v%MPCNE_VER%-%ARCH%-installer.exe" >NUL
 )
 
 EXIT /B
@@ -410,6 +422,10 @@ IF NOT DEFINED SEVENZIP (
 IF /I "%~1" == "Filters" (SET "NAME=standalone_filters-mpc-ne") ELSE (SET "NAME=MPC-NE")
 IF /I "%~2" == "Win32" (
   SET ARCH=x86
+) ELSE IF /I "%~2" == "x64" (
+  SET ARCH=amd64
+) ELSE IF /I "%~2" == "ARM64" (
+  SET ARCH=arm64
 ) ELSE (
   SET ARCH=x64
 )
@@ -429,11 +445,9 @@ FOR /F "delims=" %%D IN ('DIR /B /O-D "%PackagesOut%" 2^>NUL') DO (
   )
 )
 
-SET "PCKG_NAME=%NAME%.%MPCNE_VER%.%ARCH%"
-SET "ZIP_NAME=%NAME%.%MPCNE_VER%%SUFFIX_GIT%.%ARCH%"
+SET "PCKG_NAME=%NAME%_v%MPCNE_VER%-%ARCH%"
 
-IF EXIST "%PackagesOut%\%MPCNE_VER%\%ZIP_NAME%.7z"     DEL "%PackagesOut%\%MPCNE_VER%\%ZIP_NAME%.7z"
-IF EXIST "%PCKG_NAME%"        RD /Q /S "%PCKG_NAME%"
+IF EXIST "%PCKG_NAME%" RD /Q /S "%PCKG_NAME%"
 
 TITLE Copying %PCKG_NAME%...
 IF NOT EXIST "%PCKG_NAME%" MD "%PCKG_NAME%"
@@ -442,12 +456,18 @@ IF /I "%NAME%" == "MPC-NE" (
   IF NOT EXIST "%PCKG_NAME%\Lang" MD "%PCKG_NAME%\Lang"
   IF NOT EXIST "%PCKG_NAME%\Shaders" MD "%PCKG_NAME%\Shaders"
   IF NOT EXIST "%PCKG_NAME%\Shaders11" MD "%PCKG_NAME%\Shaders11"
-  IF /I "%ARCH%" == "x64" (
+  IF /I "%ARCH%" == "amd64" (
     COPY /Y /V "%~1_%ARCH%\mpc-ne64.exe"                   "%PCKG_NAME%\mpc-ne64.exe" >NUL
     COPY /Y /V "%~1_%ARCH%\MPCNEShellExt64.dll"            "%PCKG_NAME%\MPCNEShellExt64.dll" >NUL
     COPY /Y /V "..\distrib\MPC_components\DirectX\x64\d3dcompiler_47.dll" "%PCKG_NAME%\d3dcompiler_47.dll" >NUL
     COPY /Y /V "..\distrib\MPC_components\DirectX\x64\d3dx9_43.dll"       "%PCKG_NAME%\d3dx9_43.dll" >NUL
     COPY /Y /V "..\distrib\VisualElements\mpc-ne64.VisualElementsManifest.xml" "%PCKG_NAME%" >NUL
+  ) ELSE IF /I "%ARCH%" == "arm64" (
+    COPY /Y /V "%~1_%ARCH%\mpc-ne_arm64.exe"               "%PCKG_NAME%\mpc-ne_arm64.exe" >NUL
+    COPY /Y /V "%~1_%ARCH%\MPCNEShellExt_arm64.dll"        "%PCKG_NAME%\MPCNEShellExt_arm64.dll" >NUL
+    COPY /Y /V "..\distrib\MPC_components\DirectX\arm64\d3dcompiler_47.dll" "%PCKG_NAME%\d3dcompiler_47.dll" >NUL
+    COPY /Y /V "..\distrib\MPC_components\DirectX\arm64\d3dx9_43.dll"       "%PCKG_NAME%\d3dx9_43.dll" >NUL
+    COPY /Y /V "..\distrib\VisualElements\mpc-ne_arm64.VisualElementsManifest.xml" "%PCKG_NAME%" >NUL
   ) ELSE (
     COPY /Y /V "%~1_%ARCH%\mpc-ne.exe"                     "%PCKG_NAME%\mpc-ne.exe" >NUL
     COPY /Y /V "%~1_%ARCH%\MPCNEShellExt.dll"              "%PCKG_NAME%\MPCNEShellExt.dll" >NUL
@@ -471,34 +491,35 @@ COPY /Y /V "..\docs\Changelog.txt"           "%PCKG_NAME%" >NUL
 COPY /Y /V "..\docs\Changelog.Rus.txt"       "%PCKG_NAME%" >NUL
 COPY /Y /V "..\docs\Readme.md"               "%PCKG_NAME%" >NUL
 
-IF /I "%NAME%" == "MPC-NE" (
-  IF /I "%INSTALLER%" == "True" (
-    TITLE Creating archive %ZIP_NAME%-installer.zip...
-    START "7z" /B /WAIT "%SEVENZIP%" a -tzip "%PackagesOut%\%MPCNE_VER%\%ZIP_NAME%-installer.zip" "%PCKG_NAME%.exe" -mx9
-    IF %ERRORLEVEL% NEQ 0 CALL :SubMsg "ERROR" "Unable to create %ZIP_NAME%-installer.zip!"
-    CALL :SubMsg "INFO" "%ZIP_NAME%-installer.zip successfully created"
+REM Create portable build as .7z archive (not zip)
+IF /I "%NAME%" == "MPC-NE" IF /I "%ZIP%" == "True" (
+  TITLE Creating portable archive %PCKG_NAME%.7z...
+  REM Archive contents directly without the parent folder
+  PUSHD "%PCKG_NAME%"
+  START "7z" /B /WAIT "%SEVENZIP%" a -t7z "..\%PackagesOut%\%MPCNE_VER%\%PCKG_NAME%.7z" * -r^
+   -m0=lzma -mx9 -mmt -ms=on
+  POPD
+  IF %ERRORLEVEL% NEQ 0 (
+    CALL :SubMsg "ERROR" "Unable to create %PCKG_NAME%.7z!"
+    EXIT /B %ERRORLEVEL%
   )
+  CALL :SubMsg "INFO" "Portable build: %PackagesOut%\%MPCNE_VER%\%PCKG_NAME%.7z"
+  
+  REM Clean up the temporary folder
+  IF EXIST "%PCKG_NAME%" RD /Q /S "%PCKG_NAME%"
 )
-
-TITLE Creating archive %ZIP_NAME%.7z...
-START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCNE_VER%\%ZIP_NAME%.7z" "%PCKG_NAME%"^
- -m0=lzma -mx9 -mmt -ms=on
-IF %ERRORLEVEL% NEQ 0 (
-  CALL :SubMsg "ERROR" "Unable to create %ZIP_NAME%.7z!"
-  EXIT /B %ERRORLEVEL%
-)
-CALL :SubMsg "INFO" "%ZIP_NAME%.7z successfully created"
-
-IF EXIST "%PCKG_NAME%" RD /Q /S "%PCKG_NAME%"
 
 IF /I "%NAME%" == "MPC-NE" IF /I "%PDB%" == "True" (
-  TITLE Creating archive %ZIP_NAME%-pdb.7z...
-  IF /I "%ARCH%" == "x64" (
-    START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCNE_VER%\%ZIP_NAME%-pdb.7z" "%~1_%ARCH%\mpc-ne64.pdb"^
- -m0=lzma -mx9 -mmt -ms=on
+  TITLE Creating PDB archive %PCKG_NAME%-pdb.7z...
+  IF /I "%ARCH%" == "amd64" (
+    START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCNE_VER%\%PCKG_NAME%-pdb.7z" "%~1_%ARCH%\mpc-ne64.pdb"^
+   -m0=lzma -mx9 -mmt -ms=on
+  ) ELSE IF /I "%ARCH%" == "arm64" (
+    START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCNE_VER%\%PCKG_NAME%-pdb.7z" "%~1_%ARCH%\mpc-ne_arm64.pdb"^
+   -m0=lzma -mx9 -mmt -ms=on
   ) ELSE (
-    START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCNE_VER%\%ZIP_NAME%-pdb.7z" "%~1_%ARCH%\mpc-ne.pdb"^
- -m0=lzma -mx9 -mmt -ms=on
+    START "7z" /B /WAIT "%SEVENZIP%" a -t7z "%PackagesOut%\%MPCNE_VER%\%PCKG_NAME%-pdb.7z" "%~1_%ARCH%\mpc-ne.pdb"^
+   -m0=lzma -mx9 -mmt -ms=on
   )
 )
 
@@ -528,7 +549,14 @@ FOR /F "tokens=3,4 delims= " %%A IN (
 FOR /F "tokens=3,4 delims= " %%A IN (
   'FINDSTR /I /L /C:"define REV_HASH" "revision.h"') DO (SET "REVHASH=%%A")
 
-SET MPCNE_VER=%VerMajor%.%VerMinor%.%VerPatch%.%REVNUM%
+REM Format revision as 4-digit padded number
+SET "REVNUM_PAD=000%REVNUM%"
+SET "REVNUM_PAD=%REVNUM_PAD:~-4%"
+
+SET MPCNE_VER=%VerMajor%.%VerMinor%.%VerPatch%
+IF NOT "%REVNUM%" == "0" (
+  SET MPCNE_VER=%VerMajor%.%VerMinor%.%VerPatch%-%REVNUM_PAD%
+)
 SET "SUFFIX_GIT=_git%REVDATE%-%REVHASH%"
 
 IF /I "%VERRELEASE%" == "1" (

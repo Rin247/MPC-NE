@@ -1,7 +1,9 @@
-name: Build MPC-BE
+name: Build MPC-NE
 
 on:
   push:
+    branches-ignore:
+      - qt6-migration
     paths-ignore:
       - .github/workflows/main.yml
       - '**.txt'
@@ -12,6 +14,8 @@ on:
       - '**.manifest.template'
       - include/Version.h
   pull_request:
+    branches-ignore:
+      - qt6-migration
     paths-ignore:
       - .github/workflows/main.yml
       - '**.txt'
@@ -40,8 +44,8 @@ jobs:
           curl -sSL https://github.com/Aleksoid1978/MSYS/raw/main/MSYS_MinGW-w64_GCC_1521_x86-x64.7z -o MSYS.7z
           7z x MSYS.7z -oC:\\MSYS
           echo '@ECHO OFF' > environments.bat
-          echo 'SET "MPCBE_MSYS=C:\\MSYS"' >> environments.bat
-          echo 'SET "MPCBE_MINGW=C:\\MSYS\\mingw"' >> environments.bat
+          echo 'SET "MPCNE_MSYS=C:\\MSYS"' >> environments.bat
+          echo 'SET "MPCNE_MINGW=C:\\MSYS\\mingw"' >> environments.bat
           .\\update_gcc.bat
         shell: pwsh
 
@@ -50,35 +54,35 @@ jobs:
           .\\build.bat Clean All NoWait
         shell: pwsh
 
-      - name: Build MPC-BE
+      - name: Build MPC-NE
         run: |
           .\\build.bat Build Packages NoWait
         shell: pwsh
 
-      - name: Upload Installer x64
+      - name: Upload Installer amd64
         uses: actions/upload-artifact@v7
         with:
-          name: "Installer x64" 
-          path: _bin/Packages/**/MPC-BE*.x64-installer.zip
+          name: "Installer amd64"
+          path: _bin/Packages/**/MPC-NE_v*-amd64-installer.exe
           compression-level: 0
 
-      - name: Upload Zip x64
+      - name: Upload Portable amd64
         uses: actions/upload-artifact@v7
         with:
-          name: "Zip x64" 
-          path: _bin/Packages/**/MPC-BE*.x64.7z
+          name: "Portable amd64"
+          path: _bin/Packages/**/MPC-NE_v*-amd64.7z
           compression-level: 0
 
-      - name: Upload Installer x86
+      - name: Upload Installer arm64
         uses: actions/upload-artifact@v7
         with:
-          name: "Installer x86" 
-          path: _bin/Packages/**/MPC-BE*.x86-installer.zip
+          name: "Installer arm64"
+          path: _bin/Packages/**/MPC-NE_v*-arm64-installer.exe
           compression-level: 0
 
-      - name: Upload Zip x86
+      - name: Upload Portable arm64
         uses: actions/upload-artifact@v7
         with:
-          name: "Zip x86" 
-          path: _bin/Packages/**/MPC-BE*.x86.7z
+          name: "Portable arm64"
+          path: _bin/Packages/**/MPC-NE_v*-arm64.7z
           compression-level: 0
