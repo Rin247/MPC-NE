@@ -146,6 +146,18 @@ CALL "%VCVARS%" -arch=amd64
 REM again set the source directory (fix possible bug in VS2017)
 CD /D %~dp0
 
+IF /I "%BUILDTYPE%" == "Clean" (
+  TITLE Cleaning MPC-NE...
+  MSBuild.exe mpc-ne.sln %MSBUILD_SWITCHES% /target:Clean /property:Configuration="%BUILDCFG%";Platform=amd64
+  IF %ERRORLEVEL% NEQ 0 (
+    CALL :SubMsg "ERROR" "mpc-ne.sln %BUILDCFG% amd64 - Clean failed!"
+    EXIT /B %ERRORLEVEL%
+  ) ELSE (
+    CALL :SubMsg "INFO" "mpc-ne.sln %BUILDCFG% amd64 cleaned successfully"
+  )
+  GOTO End
+)
+
 IF /I "%CONFIG%" == "Filters" (
   CALL :SubFilters amd64
   IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
