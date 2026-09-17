@@ -125,7 +125,7 @@ AllowNoIcons=yes
 ShowTasksTreeLines=yes
 DisableDirPage=auto
 DisableProgramGroupPage=auto
-MinVersion=6.1.7600
+MinVersion=10.0.22000
 AppMutex={#app_name}
 ChangesAssociations=true
 #ifdef Sign
@@ -136,66 +136,225 @@ SignTool=OpenSourceSign
 Name: en; MessagesFile: compiler:Default.isl
 
 #ifdef localize
+Name: af; MessagesFile: compiler:Languages\Afrikaans.isl
+Name: sq; MessagesFile: compiler:Languages\Albanian.isl
+Name: ar; MessagesFile: compiler:Languages\Arabic.isl
+Name: hy; MessagesFile: compiler:Languages\Armenian.isl
+Name: az; MessagesFile: compiler:Languages\Azerbaijani.isl
+Name: eu; MessagesFile: Languages\Basque.isl
+Name: be; MessagesFile: Languages\Belarusian.isl
+Name: bn; MessagesFile: compiler:Languages\Bengali.isl
+Name: bs; MessagesFile: compiler:Languages\Bosnian.isl
 Name: bg; MessagesFile: compiler:Languages\Bulgarian.isl
-Name: br; MessagesFile: compiler:Languages\BrazilianPortuguese.isl
-Name: by; MessagesFile: Languages\Belarusian.isl
 Name: ca; MessagesFile: compiler:Languages\Catalan.isl
-Name: cz; MessagesFile: compiler:Languages\Czech.isl
+Name: zh_CN; MessagesFile: Languages\ChineseSimplified.isl
+Name: zh_TW; MessagesFile: Languages\ChineseTraditional.isl
+Name: hr; MessagesFile: Languages\Croatian.isl
+Name: cs; MessagesFile: compiler:Languages\Czech.isl
+Name: da; MessagesFile: compiler:Languages\Danish.isl
+Name: nl; MessagesFile: compiler:Languages\Dutch.isl
+Name: et; MessagesFile: compiler:Languages\Estonian.isl
+Name: fa; MessagesFile: compiler:Languages\Farsi.isl
+Name: fi; MessagesFile: compiler:Languages\Finnish.isl
+Name: fr; MessagesFile: compiler:Languages\French.isl
+Name: gl; MessagesFile: compiler:Languages\Galician.isl
+Name: ka; MessagesFile: compiler:Languages\Georgian.isl
 Name: de; MessagesFile: compiler:Languages\German.isl
 Name: el; MessagesFile: Languages\Greek.isl
-Name: es; MessagesFile: compiler:Languages\Spanish.isl
-Name: eu; MessagesFile: Languages\Basque.isl
-Name: fr; MessagesFile: compiler:Languages\French.isl
+Name: gu; MessagesFile: compiler:Languages\Gujarati.isl
 Name: he; MessagesFile: compiler:Languages\Hebrew.isl
-Name: hr; MessagesFile: Languages\Croatian.isl
+Name: hi; MessagesFile: compiler:Languages\Hindi.isl
 Name: hu; MessagesFile: compiler:Languages\Hungarian.isl
-Name: hy; MessagesFile: compiler:Languages\Armenian.isl
+Name: is; MessagesFile: compiler:Languages\Icelandic.isl
+Name: id; MessagesFile: compiler:Languages\Indonesian.isl
+Name: ga; MessagesFile: compiler:Languages\Irish.isl
 Name: it; MessagesFile: compiler:Languages\Italian.isl
 Name: ja; MessagesFile: compiler:Languages\Japanese.isl
-Name: kr; MessagesFile: compiler:Languages\Korean.isl
-Name: nl; MessagesFile: compiler:Languages\Dutch.isl
+Name: kn; MessagesFile: compiler:Languages\Kannada.isl
+Name: kk; MessagesFile: compiler:Languages\Kazakh.isl
+Name: ko; MessagesFile: compiler:Languages\Korean.isl
+Name: lv; MessagesFile: compiler:Languages\Latvian.isl
+Name: lt; MessagesFile: compiler:Languages\Lithuanian.isl
+Name: mk; MessagesFile: compiler:Languages\Macedonian.isl
+Name: ms; MessagesFile: compiler:Languages\Malay.isl
+Name: mt; MessagesFile: compiler:Languages\Maltese.isl
+Name: nb; MessagesFile: compiler:Languages\Norwegian.isl
 Name: pl; MessagesFile: compiler:Languages\Polish.isl
+Name: pt; MessagesFile: compiler:Languages\Portuguese.isl
+Name: pt_BR; MessagesFile: compiler:Languages\PortugueseBrazilian.isl
+Name: pa; MessagesFile: compiler:Languages\Punjabi.isl
 Name: ro; MessagesFile: Languages\Romanian.isl
 Name: ru; MessagesFile: compiler:Languages\Russian.isl
-Name: sc; MessagesFile: Languages\ChineseSimplified.isl
+Name: sr; MessagesFile: compiler:Languages\Serbian.isl
+Name: si; MessagesFile: compiler:Languages\Sinhala.isl
 Name: sk; MessagesFile: compiler:Languages\Slovak.isl
 Name: sl; MessagesFile: compiler:Languages\Slovenian.isl
+Name: so; MessagesFile: compiler:Languages\Somali.isl
+Name: es; MessagesFile: compiler:Languages\Spanish.isl
+Name: es_MX; MessagesFile: compiler:Languages\SpanishMexican.isl
+Name: sw; MessagesFile: compiler:Languages\Swahili.isl
 Name: sv; MessagesFile: compiler:Languages\Swedish.isl
-Name: tc; MessagesFile: Languages\ChineseTraditional.isl
+Name: ta; MessagesFile: compiler:Languages\Tamil.isl
+Name: te; MessagesFile: compiler:Languages\Telugu.isl
+Name: th; MessagesFile: compiler:Languages\Thai.isl
 Name: tr; MessagesFile: compiler:Languages\Turkish.isl
-Name: ua; MessagesFile: compiler:Languages\Ukrainian.isl
+Name: uk; MessagesFile: compiler:Languages\Ukrainian.isl
+Name: uz; MessagesFile: compiler:Languages\Uzbek.isl
+Name: vi; MessagesFile: compiler:Languages\Vietnamese.isl
+Name: cy; MessagesFile: compiler:Languages\Welsh.isl
+Name: xh; MessagesFile: compiler:Languages\Xhosa.isl
+Name: zu; MessagesFile: compiler:Languages\Zulu.isl
+; Custom languages not in Inno Setup
+Name: am; MessagesFile: Languages\Amharic.isl
+Name: ay; MessagesFile: Languages\Aymara.isl
+Name: br; MessagesFile: Languages\Breton.isl
+Name: my; MessagesFile: Languages\Burmese.isl
+Name: yue; MessagesFile: Languages\Cantonese.isl
+Name: chr; MessagesFile: Languages\Cherokee.isl
+Name: dv; MessagesFile: Languages\Dhivehi.isl
+Name: dz; MessagesFile: Languages\Dzongkha.isl
+Name: fo; MessagesFile: Languages\Faroese.isl
+Name: fj; MessagesFile: Languages\Fijian.isl
+Name: fy; MessagesFile: Languages\Frisian.isl
+Name: gn; MessagesFile: Languages\Guarani.isl
+Name: ha; MessagesFile: Languages\Hausa.isl
+Name: haw; MessagesFile: Languages\Hawaiian.isl
+Name: ig; MessagesFile: Languages\Igbo.isl
+Name: jv; MessagesFile: Languages\Javanese.isl
+Name: km; MessagesFile: Languages\Khmer.isl
+Name: rw; MessagesFile: Languages\Kinyarwanda.isl
+Name: lo; MessagesFile: Languages\Lao.isl
+Name: la; MessagesFile: Languages\Latin.isl
+Name: mg; MessagesFile: Languages\Malagasy.isl
+Name: ml; MessagesFile: Languages\Malayalam.isl
+Name: mi; MessagesFile: Languages\Maori.isl
+Name: mr; MessagesFile: Languages\Marathi.isl
+Name: mn; MessagesFile: Languages\Mongolian.isl
+Name: ne; MessagesFile: Languages\Nepali.isl
+Name: or; MessagesFile: Languages\Odia.isl
+Name: om; MessagesFile: Languages\Oromo.isl
+Name: ps; MessagesFile: Languages\Pashto.isl
+Name: qu; MessagesFile: Languages\Quechua.isl
+Name: sm; MessagesFile: Languages\Samoan.isl
+Name: gd; MessagesFile: Languages\ScottishGaelic.isl
+Name: tg; MessagesFile: Languages\Tajik.isl
+Name: bo; MessagesFile: Languages\Tibetan.isl
+Name: tk; MessagesFile: Languages\Turkmen.isl
+Name: ug; MessagesFile: Languages\Uyghur.isl
+Name: ur; MessagesFile: compiler:Languages\Urdu.isl
+Name: yo; MessagesFile: Languages\Yoruba.isl
 #endif
 
 ; Include installer's custom messages
 #include ".\CustomMessages\custom_messages.iss"
 #ifdef localize
+#include ".\CustomMessages\custom_messages.af.iss"
+#include ".\CustomMessages\custom_messages.sq.iss"
+#include ".\CustomMessages\custom_messages.ar.iss"
+#include ".\CustomMessages\custom_messages.hy.iss"
+#include ".\CustomMessages\custom_messages.az.iss"
+#include ".\CustomMessages\custom_messages.eu.iss"
+#include ".\CustomMessages\custom_messages.be.iss"
+#include ".\CustomMessages\custom_messages.bn.iss"
+#include ".\CustomMessages\custom_messages.bs.iss"
 #include ".\CustomMessages\custom_messages.bg.iss"
-#include ".\CustomMessages\custom_messages.br.iss"
-#include ".\CustomMessages\custom_messages.by.iss"
 #include ".\CustomMessages\custom_messages.ca.iss"
-#include ".\CustomMessages\custom_messages.cz.iss"
+#include ".\CustomMessages\custom_messages.zh_CN.iss"
+#include ".\CustomMessages\custom_messages.zh_TW.iss"
+#include ".\CustomMessages\custom_messages.hr.iss"
+#include ".\CustomMessages\custom_messages.cs.iss"
+#include ".\CustomMessages\custom_messages.da.iss"
+#include ".\CustomMessages\custom_messages.nl.iss"
+#include ".\CustomMessages\custom_messages.et.iss"
+#include ".\CustomMessages\custom_messages.fa.iss"
+#include ".\CustomMessages\custom_messages.fi.iss"
+#include ".\CustomMessages\custom_messages.fr.iss"
+#include ".\CustomMessages\custom_messages.gl.iss"
+#include ".\CustomMessages\custom_messages.ka.iss"
 #include ".\CustomMessages\custom_messages.de.iss"
 #include ".\CustomMessages\custom_messages.el.iss"
-#include ".\CustomMessages\custom_messages.es.iss"
-#include ".\CustomMessages\custom_messages.eu.iss"
-#include ".\CustomMessages\custom_messages.fr.iss"
+#include ".\CustomMessages\custom_messages.gu.iss"
 #include ".\CustomMessages\custom_messages.he.iss"
+#include ".\CustomMessages\custom_messages.hi.iss"
 #include ".\CustomMessages\custom_messages.hu.iss"
-#include ".\CustomMessages\custom_messages.hy.iss"
+#include ".\CustomMessages\custom_messages.is.iss"
+#include ".\CustomMessages\custom_messages.id.iss"
+#include ".\CustomMessages\custom_messages.ga.iss"
 #include ".\CustomMessages\custom_messages.it.iss"
 #include ".\CustomMessages\custom_messages.ja.iss"
-#include ".\CustomMessages\custom_messages.kr.iss"
-#include ".\CustomMessages\custom_messages.nl.iss"
+#include ".\CustomMessages\custom_messages.kn.iss"
+#include ".\CustomMessages\custom_messages.kk.iss"
+#include ".\CustomMessages\custom_messages.ko.iss"
+#include ".\CustomMessages\custom_messages.lv.iss"
+#include ".\CustomMessages\custom_messages.lt.iss"
+#include ".\CustomMessages\custom_messages.mk.iss"
+#include ".\CustomMessages\custom_messages.ms.iss"
+#include ".\CustomMessages\custom_messages.mt.iss"
+#include ".\CustomMessages\custom_messages.nb.iss"
 #include ".\CustomMessages\custom_messages.pl.iss"
+#include ".\CustomMessages\custom_messages.pt.iss"
+#include ".\CustomMessages\custom_messages.pt_BR.iss"
+#include ".\CustomMessages\custom_messages.pa.iss"
 #include ".\CustomMessages\custom_messages.ro.iss"
 #include ".\CustomMessages\custom_messages.ru.iss"
-#include ".\CustomMessages\custom_messages.sc.iss"
+#include ".\CustomMessages\custom_messages.sr.iss"
+#include ".\CustomMessages\custom_messages.si.iss"
 #include ".\CustomMessages\custom_messages.sk.iss"
 #include ".\CustomMessages\custom_messages.sl.iss"
+#include ".\CustomMessages\custom_messages.so.iss"
+#include ".\CustomMessages\custom_messages.es.iss"
+#include ".\CustomMessages\custom_messages.es_MX.iss"
+#include ".\CustomMessages\custom_messages.sw.iss"
 #include ".\CustomMessages\custom_messages.sv.iss"
-#include ".\CustomMessages\custom_messages.tc.iss"
+#include ".\CustomMessages\custom_messages.ta.iss"
+#include ".\CustomMessages\custom_messages.te.iss"
+#include ".\CustomMessages\custom_messages.th.iss"
 #include ".\CustomMessages\custom_messages.tr.iss"
-#include ".\CustomMessages\custom_messages.ua.iss"
+#include ".\CustomMessages\custom_messages.uk.iss"
+#include ".\CustomMessages\custom_messages.uz.iss"
+#include ".\CustomMessages\custom_messages.vi.iss"
+#include ".\CustomMessages\custom_messages.cy.iss"
+#include ".\CustomMessages\custom_messages.xh.iss"
+#include ".\CustomMessages\custom_messages.zu.iss"
+; Custom languages not in Inno Setup
+#include ".\CustomMessages\custom_messages.am.iss"
+#include ".\CustomMessages\custom_messages.ay.iss"
+#include ".\CustomMessages\custom_messages.br.iss"
+#include ".\CustomMessages\custom_messages.my.iss"
+#include ".\CustomMessages\custom_messages.yue.iss"
+#include ".\CustomMessages\custom_messages.chr.iss"
+#include ".\CustomMessages\custom_messages.dv.iss"
+#include ".\CustomMessages\custom_messages.dz.iss"
+#include ".\CustomMessages\custom_messages.fo.iss"
+#include ".\CustomMessages\custom_messages.fj.iss"
+#include ".\CustomMessages\custom_messages.fy.iss"
+#include ".\CustomMessages\custom_messages.gn.iss"
+#include ".\CustomMessages\custom_messages.ha.iss"
+#include ".\CustomMessages\custom_messages.haw.iss"
+#include ".\CustomMessages\custom_messages.ig.iss"
+#include ".\CustomMessages\custom_messages.jv.iss"
+#include ".\CustomMessages\custom_messages.km.iss"
+#include ".\CustomMessages\custom_messages.rw.iss"
+#include ".\CustomMessages\custom_messages.lo.iss"
+#include ".\CustomMessages\custom_messages.la.iss"
+#include ".\CustomMessages\custom_messages.mg.iss"
+#include ".\CustomMessages\custom_messages.ml.iss"
+#include ".\CustomMessages\custom_messages.mi.iss"
+#include ".\CustomMessages\custom_messages.mr.iss"
+#include ".\CustomMessages\custom_messages.mn.iss"
+#include ".\CustomMessages\custom_messages.ne.iss"
+#include ".\CustomMessages\custom_messages.or.iss"
+#include ".\CustomMessages\custom_messages.om.iss"
+#include ".\CustomMessages\custom_messages.ps.iss"
+#include ".\CustomMessages\custom_messages.qu.iss"
+#include ".\CustomMessages\custom_messages.sm.iss"
+#include ".\CustomMessages\custom_messages.gd.iss"
+#include ".\CustomMessages\custom_messages.tg.iss"
+#include ".\CustomMessages\custom_messages.bo.iss"
+#include ".\CustomMessages\custom_messages.tk.iss"
+#include ".\CustomMessages\custom_messages.ug.iss"
+#include ".\CustomMessages\custom_messages.ur.iss"
+#include ".\CustomMessages\custom_messages.yo.iss"
 #endif
 
 [Messages]
@@ -337,7 +496,7 @@ var
   strVerb, sVBSFile: String;
   objShell, colVerbs, oFile: Variant;
 begin
-  if (GetWindowsVersion shr 24 < 6) or ((GetWindowsVersion shr 24 = 6) and ((GetWindowsVersion shr 16) and $FF < 1)) then Exit; // Windows 7 check
+  if (GetWindowsVersion shr 24 < 10) or ((GetWindowsVersion shr 24 = 10) and ((GetWindowsVersion shr 16) and $FF < 0)) or ((GetWindowsVersion = $0A000000) and (GetWindowsBuild < 22000)) then Exit; // Windows 11 check
   if not FileExists(Filename) then Exit;
 
   Log('Start PinToTaskbar');

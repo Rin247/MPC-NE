@@ -48,6 +48,63 @@
 #include "UpdateChecker.h"
 
 #include <ExtLib/BaseClasses/mtype.h>
+
+#ifndef DWMWA_USE_IMMERSIVE_DARK_MODE
+#define DWMWA_USE_IMMERSIVE_DARK_MODE 20
+#endif
+#ifndef DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1
+#define DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 19
+#endif
+
+static bool IsDarkModeAllowed()
+{
+	if (!SysVersion::IsWin10v1809orLater()) {
+		return false;
+	}
+	return true;
+}
+
+static bool IsHighContrast()
+{
+	HIGHCONTRASTW hc = { sizeof(hc) };
+	return SystemParametersInfoW(SPI_GETHIGHCONTRAST, 0, &hc, 0) && (hc.dwFlags & HCF_HIGHCONTRASTON);
+}
+
+static bool ShouldAppUseDarkMode()
+{
+	if (!IsDarkModeAllowed() || IsHighContrast()) {
+		return false;
+	}
+
+	// Check if system is in dark mode
+	HKEY hKey;
+	if (RegOpenKeyExW(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", 0, KEY_READ, &hKey) == ERROR_SUCCESS) {
+		DWORD dwValue = 0;
+		DWORD dwSize = sizeof(dwValue);
+		if (RegQueryValueExW(hKey, L"AppsUseLightTheme", nullptr, nullptr, reinterpret_cast<LPBYTE>(&dwValue), &dwSize) == ERROR_SUCCESS) {
+			RegCloseKey(hKey);
+			return dwValue == 0;
+		}
+		RegCloseKey(hKey);
+	}
+	return false;
+}
+
+static void AllowDarkModeForWindow(HWND hWnd, bool allow)
+{
+	if (!IsDarkModeAllowed() || IsHighContrast()) {
+		return;
+	}
+
+	if (SysVersion::IsWin11orLater()) {
+		BOOL value = allow ? TRUE : FALSE;
+		DwmSetWindowAttribute(hWnd, DWMWA_USE_IMMERSIVE_DARK_MODE, &value, sizeof(value));
+	} else {
+		// Windows 10 1809-20H1
+		BOOL value = allow ? TRUE : FALSE;
+		DwmSetWindowAttribute(hWnd, DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1, &value, sizeof(value));
+	}
+}
 #include <Mpconfig.h>
 #include <ks.h>
 #include <ksmedia.h>
@@ -691,6 +748,11 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	UseCurentMonitorDPI(m_hWnd);
 
 	CAppSettings& s = AfxGetAppSettings();
+
+	// Enable native Windows 11 dark mode for the main window
+	if (s.bUseDarkTheme) {
+		AllowDarkModeForWindow(m_hWnd, ShouldAppUseDarkMode());
+	}
 
 	CMenuEx::SetMain(this);
 	CMenuEx::EnableHook(s.bUseDarkTheme && s.bDarkMenu);
@@ -19491,8 +19553,17 @@ void CMainFrame::OnSessionChange(UINT nSessionState, UINT nId)
 	}
 }
 
-void CMainFrame::OnSettingChange(UINT, LPCTSTR)
+void CMainFrame::OnSettingChange(UINT, LPCTSTR lpszSection)
 {
+	if (lpszSection && (wcscmp(lpszSection, L"ImmersiveColorSet") == 0 || wcscmp(lpszSection, L"AppsUseLightTheme") == 0)) {
+		const auto& s = AfxGetAppSettings();
+		if (s.bUseDarkTheme) {
+			AllowDarkModeForWindow(m_hWnd, ShouldAppUseDarkMode());
+			SetColorTitle(true);
+			SetColor();
+			Invalidate();
+		}
+	}
 	SetColorTitle(true);
 }
 
