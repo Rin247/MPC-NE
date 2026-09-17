@@ -91,6 +91,11 @@ namespace SysVersion
 		const static bool bIsWin11orLater = IsWindowsVersionOrGreaterBuild(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 22000);
 		return bIsWin11orLater;
 	}
+	inline const bool IsWin1122H2orLater() // Windows 11 22H2
+	{
+		const static bool bIsWin1122H2orLater = IsWindowsVersionOrGreaterBuild(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 22621);
+		return bIsWin1122H2orLater;
+	}
 	inline const bool IsW64() {
 		const static bool bIsW64 = IsWindows64();
 		return bIsW64;

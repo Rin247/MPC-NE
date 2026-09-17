@@ -26,7 +26,7 @@
 [Messages]
 ;English
 en.WelcomeLabel2=This will install [name] on your computer.%n%nIt is recommended that you close all other applications before continuing.
-en.WinVersionTooLowError=[name] requires Windows 11 24H2 (build 26100) or newer to run.
+en.WinVersionTooLowError=[name] requires Windows 11 (build 22000) or newer to run.
 
 
 [CustomMessages]

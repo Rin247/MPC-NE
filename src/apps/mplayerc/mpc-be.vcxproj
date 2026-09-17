@@ -606,6 +606,9 @@
     <ProjectReference Include="$(SolutionDir)src\filters\transform\MPCVideoDec\MPCVideoDec.vcxproj">
       <Project>{58e36bf5-4a06-47e4-bd40-4ccef8c634df}</Project>
     </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)src\filters\transform\HopperRender\HopperRender.vcxproj">
+      <Project>{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}</Project>
+    </ProjectReference>
     <ProjectReference Include="$(SolutionDir)src\filters\transform\DVDVideoDecoder\MpcDvdVideoDecoder.vcxproj">
       <Project>{305bab2d-0d75-4fbc-8bcd-a2917392b48c}</Project>
     </ProjectReference>
