@@ -31,7 +31,7 @@ on:
 jobs:
   build:
     runs-on: windows-2022
-    timeout-minutes: 60
+    timeout-minutes: 120
 
     steps:
       - name: Checkout repository
@@ -39,6 +39,13 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
+
+      - name: Install Visual Studio 2026
+        run: |
+          $url = "https://aka.ms/vs/18/release/vs_enterprise.exe"
+          Invoke-WebRequest -Uri $url -OutFile "vs_enterprise.exe"
+          .\vs_enterprise.exe --quiet --wait --norestart --nocache --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK.19041
+        shell: pwsh
 
       - name: Prepare MSYS
         run: |
@@ -52,12 +59,12 @@ jobs:
 
       - name: Clean
         run: |
-          .\\build.bat Clean All NoWait
+          .\\build.bat Clean All NoWait VS2026
         shell: pwsh
 
       - name: Build MPC-NE
         run: |
-          .\\build.bat Build Packages NoWait
+          .\\build.bat Build Packages NoWait VS2026
         shell: pwsh
 
       - name: Upload Installer x64
