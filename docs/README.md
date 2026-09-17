@@ -94,7 +94,7 @@ MPC-NE makes use of the following 3rd party code:
 | zlib              | zlib License        | https://zlib.net/                                     |
 | bs2b              | MIT License         | https://bs2b.sourceforge.net/                         |
 | VVdeC             | BSD License         | https://github.com/fraunhoferhhi/vvdec/               |
-| HopperRender      | GPLv3               | https://github.com/Rin247/HopperRender                |
+| HopperRender      | GPLv3               | https://github.com/HopperLogger/HopperRender                |
 | NeuralScreen      | PolyForm Strict 1.0 | https://github.com/perseval-BLR/NeuralScreen          |
 | xy-VSFilter       | GPLv3               | https://github.com/pinterf/xy-VSFilter                |
 

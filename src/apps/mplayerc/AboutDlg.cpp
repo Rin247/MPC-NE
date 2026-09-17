@@ -124,14 +124,14 @@ void CAboutDlg::OnAuthors(NMHDR* pNMHDR, LRESULT* pResult)
 
 void CAboutDlg::OnHomepage(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	ShellExecuteW(m_hWnd, L"open", L"https://sourceforge.net/projects/mpcbe/", nullptr, nullptr, SW_SHOWDEFAULT);
+	ShellExecuteW(m_hWnd, L"open", L"https://github.com/Rin247/MPC-NE/", nullptr, nullptr, SW_SHOWDEFAULT);
 
 	*pResult = 0;
 }
 
 void CAboutDlg::OnGitHub(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	ShellExecuteW(m_hWnd, L"open", L"https://github.com/Aleksoid1978/MPC-BE", nullptr, nullptr, SW_SHOWDEFAULT);
+	ShellExecuteW(m_hWnd, L"open", L"https://github.com/HopperLogger/HopperRender", nullptr, nullptr, SW_SHOWDEFAULT);
 
 	*pResult = 0;
 }
