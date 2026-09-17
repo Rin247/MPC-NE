@@ -1,15 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup Label="ProjectConfigurations">
-      <Configuration>Debug</Configuration>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
+  <ItemGroup Label="ProjectConfigurations"><ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfiguration>
-      <Configuration>Release</Configuration>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
+    </ProjectConfiguration><ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
@@ -17,6 +11,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BF167235-4EEA-43E5-91E6-7B143B26C56B}</ProjectGuid>
     <RootNamespace>MPCBEShellExt</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
     <ProjectName>MPCBEShellExt</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -36,10 +31,14 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
+    <OutDir >$(SolutionDir)_bin\mpc-ne_x86_$(Configuration)\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)_bin\mpc-ne_x64_$(Configuration)\</OutDir>
+    <OutDir >$(SolutionDir)_bin\mpc-ne_x86\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)_bin\mpc-ne_x64\</OutDir>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <GenerateManifest>true</GenerateManifest>
+    <TargetName >$(ProjectName)</TargetName>
+    <TargetName >$(ProjectName)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectName)64</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)64</TargetName>
   </PropertyGroup>
@@ -49,8 +48,10 @@
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup >
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <TypeLibraryName>$(IntDir)MPCBEShellExt.tlb</TypeLibraryName>
       <HeaderFileName>MPCBEShellExt_i.h</HeaderFileName>
@@ -110,8 +111,10 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup >
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <TypeLibraryName>$(IntDir)MPCBEShellExt.tlb</TypeLibraryName>
       <HeaderFileName>MPCBEShellExt_i.h</HeaderFileName>

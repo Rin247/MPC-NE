@@ -1,15 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup Label="ProjectConfigurations">
-      <Configuration>Debug</Configuration>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
+  <ItemGroup Label="ProjectConfigurations"><ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfiguration>
-      <Configuration>Release</Configuration>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
+    </ProjectConfiguration><ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
@@ -26,6 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C868FDA0-2A56-4274-8C34-AC4751DA7BED}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
     <RootNamespace>libbs2b</RootNamespace>
     <ProjectName>libbs2b</ProjectName>
   </PropertyGroup>

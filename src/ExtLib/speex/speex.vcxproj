@@ -1,15 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup Label="ProjectConfigurations">
-      <Configuration>Debug</Configuration>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
+  <ItemGroup Label="ProjectConfigurations"><ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfiguration>
-      <Configuration>Release</Configuration>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
+    </ProjectConfiguration><ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
@@ -84,6 +78,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F4C233D1-297B-4B6B-BD63-A7D38F88AA83}</ProjectGuid>
     <RootNamespace>speex</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
     <ProjectName>speex</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -100,6 +95,7 @@
     <Import Project="$(SolutionDir)src\common.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup >
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;HAVE_CONFIG_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
@@ -111,6 +107,7 @@
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup >
     <ClCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;HAVE_CONFIG_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>

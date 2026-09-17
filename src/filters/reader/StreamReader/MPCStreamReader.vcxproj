@@ -3,6 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3020FF9B-8202-488D-B137-11DECC510E6E}</ProjectGuid>
     <RootNamespace>MPCStreamReader</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
     <ProjectName>MPCStreamReader</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

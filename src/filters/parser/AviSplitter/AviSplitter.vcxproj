@@ -3,6 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9738B023-FC46-48A2-953A-0035FD897678}</ProjectGuid>
     <RootNamespace>AviSplitter</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
     <ProjectName>AviSplitter</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -35,6 +36,8 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release Filter|x64'">$(SolutionDir)lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug Filter|x64'">$(SolutionDir)lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories >$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories >$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
