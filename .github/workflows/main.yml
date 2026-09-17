@@ -44,7 +44,7 @@ jobs:
         run: |
           $url = "https://aka.ms/vs/18/release/vs_enterprise.exe"
           Invoke-WebRequest -Uri $url -OutFile "vs_enterprise.exe"
-          .\vs_enterprise.exe --quiet --wait --norestart --nocache --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK.19041
+          .\vs_enterprise.exe --quiet --wait --norestart --nocache --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.22000
         shell: pwsh
 
       - name: Prepare MSYS
