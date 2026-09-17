@@ -3,7 +3,6 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{58E36BF5-4A06-47E4-BD40-4CCEF8C634DF}</ProjectGuid>
     <RootNamespace>MPCVideoDec</RootNamespace>
-    <Keyword>Win32Proj</Keyword>
     <ProjectName>MPCVideoDec</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -20,7 +19,6 @@
   <PropertyGroup Condition="'$(Configuration)'=='Debug Filter' Or '$(Configuration)'=='Release Filter'">
     <TargetExt>.ax</TargetExt>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Filter|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(SolutionDir)src\ExtLib\ffmpeg;$(SolutionDir)src\ExtLib\ffmpeg\compat\atomics\win32;$(SolutionDir)src;$(SolutionDir)src\ExtLib\nv-codec-headers\include;$(SolutionDir)src\ExtLib\mfx_dispatch\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4003;%(DisableSpecificWarnings)</DisableSpecificWarnings>
@@ -46,7 +44,6 @@
       <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Filter|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(SolutionDir)src\ExtLib\ffmpeg;$(SolutionDir)src\ExtLib\ffmpeg\compat\atomics\win32;$(SolutionDir)src;$(SolutionDir)src\ExtLib\nv-codec-headers\include;$(SolutionDir)src\ExtLib\mfx_dispatch\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4003;%(DisableSpecificWarnings)</DisableSpecificWarnings>
@@ -70,7 +67,6 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(SolutionDir)src\ExtLib\ffmpeg;$(SolutionDir)src\ExtLib\ffmpeg\compat\atomics\win32;$(SolutionDir)src;$(SolutionDir)src\ExtLib\nv-codec-headers\include;$(SolutionDir)src\ExtLib\mfx_dispatch\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -86,7 +82,6 @@
     </ClCompile>
     <ProjectReference />
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(SolutionDir)src\ExtLib\ffmpeg;$(SolutionDir)src\ExtLib\ffmpeg\compat\atomics\win32;$(SolutionDir)src;$(SolutionDir)src\ExtLib\nv-codec-headers\include;$(SolutionDir)src\ExtLib\mfx_dispatch\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>

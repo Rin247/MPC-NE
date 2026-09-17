@@ -3,7 +3,6 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E73D2FF6-5738-4E17-B895-7D206FBA9DE2}</ProjectGuid>
     <RootNamespace>RawVideoSplitter</RootNamespace>
-    <Keyword>Win32Proj</Keyword>
     <ProjectName>RawVideoSplitter</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

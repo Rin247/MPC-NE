@@ -3,7 +3,6 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2BC02329-D46C-4EC5-B5C7-30E21CD41F78}</ProjectGuid>
     <RootNamespace>BinkSplitter</RootNamespace>
-    <Keyword>Win32Proj</Keyword>
     <ProjectName>BinkSplitter</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
