@@ -9,7 +9,7 @@ on:
       - '**.txt'
       - '**.md'
       - '**.cmd'
-      - '**.bat'
+      - '!build.bat'
       - '**.manifest.conf'
       - '**.manifest.template'
       - include/Version.h
@@ -21,7 +21,7 @@ on:
       - '**.txt'
       - '**.md'
       - '**.cmd'
-      - '**.bat'
+      - '!build.bat'
       - '**.vcxproj.filters'
       - '**.manifest.conf'
       - '**.manifest.template'
