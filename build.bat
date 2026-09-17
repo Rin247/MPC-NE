@@ -420,6 +420,15 @@ SET PackagesOut=Packages
 
 IF NOT EXIST "%PackagesOut%\%MPCBE_VER%" MD "%PackagesOut%\%MPCBE_VER%"
 
+REM Purge old builds - keep only last 5
+SET "BUILD_COUNT=0"
+FOR /F "delims=" %%D IN ('DIR /B /O-D "%PackagesOut%" 2^>NUL') DO (
+  SET /A BUILD_COUNT+=1
+  IF !BUILD_COUNT! GTR 5 (
+    RD /Q /S "%PackagesOut%\%%D" 2>NUL
+  )
+)
+
 SET "PCKG_NAME=%NAME%.%MPCBE_VER%.%ARCH%"
 SET "ZIP_NAME=%NAME%.%MPCBE_VER%%SUFFIX_GIT%.%ARCH%"
 
