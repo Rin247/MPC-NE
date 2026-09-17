@@ -209,13 +209,9 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug Filter|x64 = Debug Filter|x64
-		Debug Filter|ARM64 = Debug Filter|ARM64
 		Debug|x64 = Debug|x64
-		Debug|ARM64 = Debug|ARM64
 		Release Filter|x64 = Release Filter|x64
-		Release Filter|ARM64 = Release Filter|ARM64
 		Release|x64 = Release|x64
-		Release|ARM64 = Release|ARM64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8CE7E5D0-C821-47AC-A247-28EC95B34670}.Debug Filter|x64.ActiveCfg = Debug|x64
@@ -608,20 +604,12 @@ Global
 		{58E36BF5-4A06-47E4-BD40-4CCEF8C634DF}.Release|x64.Build.0 = Release|x64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug Filter|x64.ActiveCfg = Debug Filter|x64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug Filter|x64.Build.0 = Debug Filter|x64
-		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug Filter|ARM64.ActiveCfg = Debug Filter|ARM64
-		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug Filter|ARM64.Build.0 = Debug Filter|ARM64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|x64.ActiveCfg = Debug|x64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|x64.Build.0 = Debug|x64
-		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|ARM64.Build.0 = Debug|ARM64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release Filter|x64.ActiveCfg = Release Filter|x64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release Filter|x64.Build.0 = Release Filter|x64
-		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release Filter|ARM64.ActiveCfg = Release Filter|ARM64
-		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release Filter|ARM64.Build.0 = Release Filter|ARM64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|x64.ActiveCfg = Release|x64
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|x64.Build.0 = Release|x64
-		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|ARM64.ActiveCfg = Release|ARM64
-		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|ARM64.Build.0 = Release|ARM64
 		{305BAB2D-0D75-4FBC-8BCD-A2917392B48C}.Debug Filter|x64.ActiveCfg = Debug Filter|x64
 		{305BAB2D-0D75-4FBC-8BCD-A2917392B48C}.Debug Filter|x64.Build.0 = Debug Filter|x64
 		{305BAB2D-0D75-4FBC-8BCD-A2917392B48C}.Debug|x64.ActiveCfg = Debug|x64
