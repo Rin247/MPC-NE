@@ -47,10 +47,9 @@ FOR %%A IN (%ARG%) DO (
   IF /I "%%A" == "Build"      SET "BUILDTYPE=Build"     & SET /A ARGB+=1
   IF /I "%%A" == "Clean"      SET "BUILDTYPE=Clean"     & SET /A ARGB+=1  & SET /A ARGCL+=1
   IF /I "%%A" == "Rebuild"    SET "BUILDTYPE=Rebuild"   & SET /A ARGB+=1
-  IF /I "%%A" == "Both"       SET "BUILDPLATFORM=Both"  & SET /A ARGPL+=1
-  IF /I "%%A" == "Win32"      SET "BUILDPLATFORM=Win32" & SET /A ARGPL+=1
-  IF /I "%%A" == "x86"        SET "BUILDPLATFORM=Win32" & SET /A ARGPL+=1
-  IF /I "%%A" == "x64"        SET "BUILDPLATFORM=x64"   & SET /A ARGPL+=1
+  IF /I "%%A" == "amd64"      SET "BUILDPLATFORM=amd64" & SET /A ARGPL+=1
+  IF /I "%%A" == "x64"        SET "BUILDPLATFORM=amd64" & SET /A ARGPL+=1
+  IF /I "%%A" == "ARM64"      SET "BUILDPLATFORM=ARM64" & SET /A ARGPL+=1
   IF /I "%%A" == "All"        SET "CONFIG=All"          & SET /A ARGC+=1
   IF /I "%%A" == "Main"       SET "CONFIG=Main"         & SET /A ARGC+=1  & SET /A ARGM+=1
   IF /I "%%A" == "Filters"    SET "CONFIG=Filters"      & SET /A ARGC+=1  & SET /A ARGF+=1
@@ -88,7 +87,7 @@ SET /A VALID=%ARGB%+%ARGPL%+%ARGC%+%ARGBC%+%ARGPA%+%ARGIN%+%ARGZI%+%ARGSIGN%+%AR
 IF %VALID% NEQ %INPUT% GOTO UnsupportedSwitch
 
 IF %ARGB%    GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGB% == 0    (SET "BUILDTYPE=Build")
-IF %ARGPL%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGPL% == 0   (SET "BUILDPLATFORM=Both")
+IF %ARGPL%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGPL% == 0   (SET "BUILDPLATFORM=amd64")
 IF %ARGC%    GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGC% == 0    (SET "CONFIG=MPCNE")
 IF %ARGBC%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGBC% == 0   (SET "BUILDCFG=Release")
 IF %ARGPA%   GTR 1 (GOTO UnsupportedSwitch) ELSE IF %ARGPA% == 0   (SET "PACKAGES=False")
@@ -143,74 +142,36 @@ SET "MSBUILD_SWITCHES=/nologo /consoleloggerparameters:Verbosity=minimal /maxcpu
 SET START_TIME=%TIME%
 SET START_DATE=%DATE%
 
-IF /I "%BUILDPLATFORM%" == "Win32" (GOTO Win32) ELSE IF /I "%BUILDPLATFORM%" == "x64" (GOTO x64)
-
-:Win32
-CALL "%VCVARS%" -arch=x86
-REM again set the source directory (fix possible bug in VS2017)
-CD /D %~dp0
-
-IF /I "%CONFIG%" == "Filters" (
-  CALL :SubFilters Win32
-  IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-  IF /I "%ZIP%" == "True" CALL :SubCreatePackages Filters Win32
-  GOTO x64
-)
-
-IF /I "%CONFIG%" == "Resources" CALL :SubResources Win32 && GOTO x64
-
-CALL :SubMPCNE Win32
-IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-
-IF /I "%CONFIG%" == "Main" GOTO x64
-
-CALL :SubResources Win32
-IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-
-IF /I "%INSTALLER%" == "True" CALL :SubCreateInstaller Win32
-IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-IF /I "%ZIP%" == "True"       CALL :SubCreatePackages MPC-NE Win32
-IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-
-IF /I "%CONFIG%" == "All" (
-  CALL :SubFilters Win32
-  IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-  IF /I "%ZIP%" == "True" CALL :SubCreatePackages Filters Win32
-)
-
-:x64
-IF /I "%BUILDPLATFORM%" == "Win32" GOTO End
-
 CALL "%VCVARS%" -arch=amd64
 REM again set the source directory (fix possible bug in VS2017)
 CD /D %~dp0
 
 IF /I "%CONFIG%" == "Filters" (
-  CALL :SubFilters x64
+  CALL :SubFilters amd64
   IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-  IF /I "%ZIP%" == "True" CALL :SubCreatePackages Filters x64
-  GOTO END
+  IF /I "%ZIP%" == "True" CALL :SubCreatePackages Filters amd64
+  GOTO End
 )
 
-IF /I "%CONFIG%" == "Resources" CALL :SubResources x64 && GOTO END
+IF /I "%CONFIG%" == "Resources" CALL :SubResources amd64 && GOTO End
 
-CALL :SubMPCNE x64
+CALL :SubMPCNE amd64
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
 IF /I "%CONFIG%" == "Main" GOTO End
 
-CALL :SubResources x64
+CALL :SubResources amd64
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
-IF /I "%INSTALLER%" == "True" CALL :SubCreateInstaller x64
+IF /I "%INSTALLER%" == "True" CALL :SubCreateInstaller amd64
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-IF /I "%ZIP%" == "True"       CALL :SubCreatePackages MPC-NE x64
+IF /I "%ZIP%" == "True"       CALL :SubCreatePackages MPC-NE amd64
 IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
 
 IF /I "%CONFIG%" == "All" (
-  CALL :SubFilters x64
+  CALL :SubFilters amd64
   IF !ERRORLEVEL! NEQ 0 EXIT /B !ERRORLEVEL!
-  IF /I "%ZIP%" == "True" CALL :SubCreatePackages Filters x64
+  IF /I "%ZIP%" == "True" CALL :SubCreatePackages Filters amd64
 )
 
 :End
@@ -234,11 +195,7 @@ IF %ERRORLEVEL% NEQ 0 (
   CALL :SubMsg "INFO" "mpc-ne.sln %BUILDCFG% Filter %1 compiled successfully"
 )
 
-IF /I "%1" == "Win32" (
-  SET "DIR=%BIN%\Filters_x86"
-) ELSE (
-  SET "DIR=%BIN%\Filters_x64"
-)
+SET "DIR=%BIN%\Filters_amd64"
 
 IF /I "%SIGN%" == "True" (
   CALL :SubSign %DIR% *.ax
@@ -259,23 +216,19 @@ IF %ERRORLEVEL% NEQ 0 (
   CALL :SubMsg "INFO" "mpc-ne.sln %BUILDCFG% %1 compiled successfully"
 )
 
-TITLE Compiling mpciconlib - %BUILDCFG%^|%1...
+TITLE Compiling mpciconlib - %BUILDCFG%^|amd64...
 MSBuild.exe mpciconlib.sln %MSBUILD_SWITCHES%^
- /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=%1^
- /flp1:LogFile=%LOG_DIR%\mpciconlib_errors_%BUILDCFG%_%1.log;errorsonly;Verbosity=diagnostic^
- /flp2:LogFile=%LOG_DIR%\mpciconlib_warnings_%BUILDCFG%_%1.log;warningsonly;Verbosity=diagnostic
+ /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=amd64^
+ /flp1:LogFile=%LOG_DIR%\mpciconlib_errors_%BUILDCFG%_amd64.log;errorsonly;Verbosity=diagnostic^
+ /flp2:LogFile=%LOG_DIR%\mpciconlib_warnings_%BUILDCFG%_amd64.log;warningsonly;Verbosity=diagnostic
 IF %ERRORLEVEL% NEQ 0 (
-  CALL :SubMsg "ERROR" "mpciconlib.sln %BUILDCFG% %1 - Compilation failed!"
+  CALL :SubMsg "ERROR" "mpciconlib.sln %BUILDCFG% amd64 - Compilation failed!"
   EXIT /B %ERRORLEVEL%
 ) ELSE (
-  CALL :SubMsg "INFO" "mpciconlib.sln %BUILDCFG% %1 compiled successfully"
+  CALL :SubMsg "INFO" "mpciconlib.sln %BUILDCFG% amd64 compiled successfully"
 )
 
-IF /I "%1" == "Win32" (
-  SET "DIR=%BIN%\mpc-ne_x86"
-) ELSE (
-  SET "DIR=%BIN%\mpc-ne_x64"
-)
+SET "DIR=%BIN%\mpc-ne_amd64"
 
 IF /I "%SIGN%" == "True" (
   CALL :SubSign %DIR% mpc-ne*.exe
@@ -283,20 +236,6 @@ IF /I "%SIGN%" == "True" (
 )
 
 TITLE Compiling MPCNEShellExt - %BUILDCFG%...
-MSBuild.exe MPCNEShellExt.sln %MSBUILD_SWITCHES%^
- /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=Win32
-IF %ERRORLEVEL% NEQ 0 (
-  CALL :SubMsg "ERROR" "MPCNEShellExt.sln %BUILDCFG% Win32 - Compilation failed!"
-  EXIT /B %ERRORLEVEL%
-) ELSE (
-  CALL :SubMsg "INFO" "MPCNEShellExt.sln %BUILDCFG% Win32 compiled successfully"
-)
-
-SET "DIR=%BIN%\mpc-ne_x86"
-IF /I "%SIGN%" == "True" (
-  CALL :SubSign %DIR% MPCNEShellExt.dll
-)
-
 MSBuild.exe MPCNEShellExt.sln %MSBUILD_SWITCHES%^
  /target:%BUILDTYPE% /property:Configuration=%BUILDCFG%;Platform=x64
 IF %ERRORLEVEL% NEQ 0 (
@@ -306,7 +245,7 @@ IF %ERRORLEVEL% NEQ 0 (
   CALL :SubMsg "INFO" "MPCNEShellExt.sln %BUILDCFG% x64 compiled successfully"
 )
 
-SET "DIR=%BIN%\mpc-ne_x64"
+SET "DIR=%BIN%\mpc-ne_amd64"
 IF /I "%SIGN%" == "True" (
   CALL :SubSign %DIR% MPCNEShellExt64.dll
 )
@@ -324,20 +263,16 @@ FOR %%A IN ("Arabic" "Armenian" "Basque" "Belarusian" "Bulgarian" "Catalan" "Chi
  "Italian" "Japanese" "Korean" "Polish" "Portuguese" "Romanian" "Russian" "Slovak" "Slovenian" "Spanish"
  "Swedish" "Turkish" "Ukrainian" "Vietnamese"
 ) DO (
- TITLE Compiling mpcresources - %%~A^|%1...
+ TITLE Compiling mpcresources - %%~A^|amd64...
  MSBuild.exe mpcresources.sln %MSBUILD_SWITCHES%^
- /target:%BUILDTYPE% /property:Configuration="Release %%~A";Platform=%1
+ /target:%BUILDTYPE% /property:Configuration="Release %%~A";Platform=amd64
  IF %ERRORLEVEL% NEQ 0 (
    CALL :SubMsg "ERROR" "Compilation failed!"
    EXIT /B %ERRORLEVEL%
  )
 )
 
-IF /I "%1" == "Win32" (
-  SET "DIR=%BIN%\mpc-ne_x86\Lang"
-) ELSE (
-  SET "DIR=%BIN%\mpc-ne_x64\Lang"
-)
+SET "DIR=%BIN%\mpc-ne_amd64\Lang"
 
 IF /I "%SIGN%" == "True" (
   CALL :SubSign %DIR% mpcresources.??.dll
@@ -622,17 +557,16 @@ ECHO        Debug only applies to mpc-ne.sln.
 ECHO        The arguments are not case sensitive and can be ommitted.
 ECHO. & ECHO.
 ECHO Executing %~nx0 without any arguments will use the default ones:
-ECHO "%~nx0 Build Both Release"
+ECHO "%~nx0 Build Release"
 ECHO. & ECHO.
 ECHO Examples:
-ECHO %~nx0 x86 Resources -Builds the x86 resources
-ECHO %~nx0 Resources     -Builds both x86 and x64 resources
-ECHO %~nx0 x86           -Builds x86 Main exe and the x86 resources
-ECHO %~nx0 x86 Debug     -Builds x86 Main Debug exe and x86 resources
-ECHO %~nx0 x86 Filters   -Builds x86 Filters
-ECHO %~nx0 x86 All       -Builds x86 Main exe, x86 Filters and the x86 resources
-ECHO %~nx0 x86 Packages  -Builds x86 Main exe, x86 resources and creates the installer and the .7z package
-ECHO %~nx0 x86 Sign      -Builds x86 Main exe and the x86 resources and signing output files
+ECHO %~nx0 Resources     -Builds amd64 resources
+ECHO %~nx0               -Builds amd64 Main exe and the amd64 resources
+ECHO %~nx0 Debug         -Builds amd64 Main Debug exe and amd64 resources
+ECHO %~nx0 Filters       -Builds amd64 Filters
+ECHO %~nx0 All           -Builds amd64 Main exe, amd64 Filters and the amd64 resources
+ECHO %~nx0 Packages      -Builds amd64 Main exe, amd64 resources and creates the installer and the .7z package
+ECHO %~nx0 Sign          -Builds amd64 Main exe and the amd64 resources and signing output files
 ECHO.
 ENDLOCAL
 EXIT /B
