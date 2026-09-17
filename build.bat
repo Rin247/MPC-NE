@@ -76,8 +76,8 @@ CALL "update_revision.cmd"
 
 IF EXIST "environments.bat" CALL "environments.bat"
 
-IF NOT DEFINED MPCNE_MINGW GOTO MissingVar
-IF NOT DEFINED MPCNE_MSYS  GOTO MissingVar
+IF NOT DEFINED MPCBE_MINGW GOTO MissingVar
+IF NOT DEFINED MPCBE_MSYS  GOTO MissingVar
 
 FOR %%X IN (%*) DO (
   IF /I "%%X" NEQ "NoWait" SET /A INPUT+=1

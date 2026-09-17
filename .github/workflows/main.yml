@@ -71,7 +71,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: "Installer x64"
-          path: _bin/Packages/**/MPC-NE_v*-x64-installer.exe
+          path: _bin/MPC-NE_v*-x64-installer.exe
           compression-level: 0
 
       - name: Upload Portable x64
