@@ -1,43 +1,70 @@
-# Media Player Classic - Black Edition (MPC-BE)
+# Media Player Classic - Newtype Edition (MPC-NE)
 ---
 
-MPC-BE – универсальный проигрыватель аудио и видеофайлов для операционной системы Windows.
-Этот проект имеет свою независимую разработку на базе оригинального кода «Media Player Classic» (Gabest) и «Media Player Classic - Home Cinema» (Casimir666).
-
-## Системные требования:
-* Процессор с поддержкой SSE2
-* Видеокарта с поддержкой DirectX9.0c (PS 3.0)
-* Windows 7, 8, 8.1, 10, 11 32-bit/64-bit
-
----
-
-MPC-BE is a free and open source audio and video player for Windows.
-MPC-BE is based on the original Guliverkli project and "Media Player Classic Home Cinema" project, contains additional features and bug fixes.
+MPC-NE is a universal audio and video player for Windows.
+This project is a fork of MPC-BE with numerous improvements and new features.
 
 ## System requirements:
-* An SSE2 capable CPU
-* Video card supporting DirectX9.0c (PS 3.0)
-* Windows 7, 8, 8.1, 10, 11 32-bit/64-bit
-
-## Downloads
-- [Releases      ](https://github.com/Aleksoid1978/MPC-BE/releases)
-- [Nightly Builds](https://github.com/Aleksoid1978/MPC-BE/wiki/Nightly-builds)
-
-## Links
-- [Project Page  ](https://sourceforge.net/projects/mpcbe/)
-- [Wiki          ](https://github.com/Aleksoid1978/MPC-BE/wiki)
-- [Get code      ](https://github.com/Aleksoid1978/MPC-BE.git)
-
----
- 
-For the people involved in the development, see Authors.txt.
-MPC-BE's code is licensed under GPL v3 (see LICENSE).
-
-Translations are done by various translators (see Authors.txt).
+* CPU with SSE2 support (x64)
+* Video card with DirectX 11/12 support
+* Windows 11 24H2 (build 26100) or newer, 64-bit only
 
 ---
 
-MPC-BE makes use of the following 3rd party code:
+MPC-NE is a free and open source audio and video player for Windows.
+MPC-NE is based on MPC-BE (which itself is based on the original Guliverkli project and "Media Player Classic Home Cinema"), with additional features, modernizations, and bug fixes.
+
+## Key Features
+
+### Native Frame Interpolation (HopperRender)
+Built-in real-time motion interpolation using OpenCL-accelerated optical flow calculations:
+- Interpolates any source framerate to your display's native refresh rate
+- HDR video support (madVR recommended)
+- All resolutions supported (DVD to 4K Blu-ray)
+- Cross-platform compatible with NVIDIA and AMD GPUs
+- Warps frames in both directions and blends for smoothest experience
+- HSV/Grey flow visualization
+- Automatic performance tuning
+- Compatible with madVR, MPC Video Renderer, EVR
+
+### Neural Upscaling & Frame Generation (NeuralScreen)
+Built-in DLSS 5 Neural Rendering applied to your entire desktop in real-time:
+- NVIDIA DLSS 5 Neural Rendering (NR) for any content - video, games, photos, UI
+- DLSS Frame Generation (FG) with ×2/×3/×4 multipliers
+- RTX 30/40/50 series support (validated on RTX 50, reported on RTX 40)
+- Whole screen or single window mode with automatic window tracking
+- Boost mode for performance (reduced processing resolution, full output resolution)
+- 12 languages, user presets, dark/light themes
+- Recording with audio, screenshots, Spout2 output for OBS
+- Before/after wipe slider for comparison
+- 3 model profiles: Default, Natural, Cinematic
+- Adjustable strength: Faithful → Extreme
+- HDR compatibility mode (experimental)
+- Hotkey support (Num2 for menu, Num1 NR on/off, Num7 FG on/off, etc.)
+
+### Modern Dark Theme Support
+- Native Windows 11 dark mode via DWM API
+- Automatic system theme detection and switching
+- Customizable theme colors (brightness, RGB tint)
+- Dark menus with blur-behind support
+- Dark title bar
+
+### Extensive Language Support
+- 100+ languages in the installer
+- Includes rare and minority languages
+- Automatic language detection
+
+### Build Modernization
+- x64 only (32-bit builds dropped)
+- Windows 11 24H2 minimum requirement
+- Parallel build limit (5 concurrent)
+- Automatic old build cleanup (keeps last 5)
+
+---
+
+## Third-Party Code
+
+MPC-NE makes use of the following 3rd party code:
 
 | Project           | License             | Website                                               |
 |-------------------|---------------------|-------------------------------------------------------|
@@ -69,3 +96,13 @@ MPC-BE makes use of the following 3rd party code:
 | zlib              | zlib License        | https://zlib.net/                                     |
 | bs2b              | MIT License         | https://bs2b.sourceforge.net/                         |
 | VVdeC             | BSD License         | https://github.com/fraunhoferhhi/vvdec/               |
+| HopperRender      | GPLv3               | https://github.com/Rin247/HopperRender                |
+| NeuralScreen      | PolyForm Strict 1.0 | https://github.com/perseval-BLR/NeuralScreen          |
+| xy-VSFilter       | GPLv3               | https://github.com/pinterf/xy-VSFilter                |
+
+---
+
+For the people involved in the development, see Authors.txt.
+MPC-NE's code is licensed under GPL v3 (see LICENSE).
+
+Translations are done by various translators (see Authors.txt).
