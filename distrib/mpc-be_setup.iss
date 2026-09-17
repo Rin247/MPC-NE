@@ -125,7 +125,7 @@ AllowNoIcons=yes
 ShowTasksTreeLines=yes
 DisableDirPage=auto
 DisableProgramGroupPage=auto
-MinVersion=10.0.22000
+MinVersion=10.0.26100
 AppMutex={#app_name}
 ChangesAssociations=true
 #ifdef Sign
@@ -496,7 +496,7 @@ var
   strVerb, sVBSFile: String;
   objShell, colVerbs, oFile: Variant;
 begin
-  if (GetWindowsVersion shr 24 < 10) or ((GetWindowsVersion shr 24 = 10) and ((GetWindowsVersion shr 16) and $FF < 0)) or ((GetWindowsVersion = $0A000000) and (GetWindowsBuild < 22000)) then Exit; // Windows 11 check
+  if (GetWindowsVersion shr 24 < 10) or ((GetWindowsVersion shr 24 = 10) and ((GetWindowsVersion shr 16) and $FF < 0)) or ((GetWindowsVersion = $0A000000) and (GetWindowsBuild < 26100)) then Exit; // Windows 11 24H2 check
   if not FileExists(Filename) then Exit;
 
   Log('Start PinToTaskbar');

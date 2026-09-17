@@ -138,7 +138,7 @@ IF NOT EXIST "%LOG_DIR%" MD "%LOG_DIR%"
 
 CALL :SubDetectWinArch
 
-SET "MSBUILD_SWITCHES=/nologo /consoleloggerparameters:Verbosity=minimal /maxcpucount /nodeReuse:true"
+SET "MSBUILD_SWITCHES=/nologo /consoleloggerparameters:Verbosity=minimal /maxcpucount:5 /nodeReuse:true"
 
 SET START_TIME=%TIME%
 SET START_DATE=%DATE%
